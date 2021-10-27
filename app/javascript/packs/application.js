@@ -1,4 +1,3 @@
-
 import 'bootstrap'
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -7,8 +6,3 @@ require("channels")
 require("jquery")
 import $ from 'jquery';
 global.$ = jQuery;
-
-
-
-
-
