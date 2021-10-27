@@ -6,4 +6,9 @@ class UserEmailMailer < ApplicationMailer
     mail(to: 'raoahmar87@gmail.com', subject: "welcome to my self")
   end
 end
+<<<<<<< HEAD
 
+=======
+class UserEmailMailer < ApplicationMailer
+end
+>>>>>>> Sending Email Confirmation
