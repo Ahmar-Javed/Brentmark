@@ -1,13 +1,13 @@
 @import "bootstrap/scss/bootstrap";
 
-body{
-box-sizing: border-box;
-background: #43C6AC; 
-background: -webkit-linear-gradient(to right, #191654, #43C6AC); 
-background: linear-gradient(to right, #191654, #43C6AC); 
+body {
+  box-sizing: border-box;
+  background: #43C6AC; 
+  background: -webkit-linear-gradient(to right, #191654, #43C6AC); 
+  background: linear-gradient(to right, #191654, #43C6AC); 
 }
  
-.center{
+.center {
   width: 400px;
   display: inline-block;
   margin-left:40%;
@@ -15,42 +15,41 @@ background: linear-gradient(to right, #191654, #43C6AC);
   color: black;
 }
 
-#form1{
+#form1 {
   width: 400px;
-
   margin-left:40%;
   margin-bottom: 2%;
   color: black;
   display:none;
 }
 
-.inputfields{
-    width: 300px;
-    line-height: 10px;
-    border-radius: 25px;
-    height: 25px;
-    margin-bottom: 17px;
-    border-style: none;
+.inputfields {
+  width: 300px;
+  line-height: 10px;
+  border-radius: 25px;
+  height: 25px;
+  margin-bottom: 17px;
+  border-style: none;
 }
 
-.margin-bottom{
+.margin-bottom {
   margin-bottom: 8px;
 }
 
-.margin-top{
+.margin-top {
   margin-top: 20px;
 }
 
-.button{
+.button {
   width: 300px;
-   border-radius: 25px;
+  border-radius: 25px;
 }
 
-.description{
+.description {
   font-size: 10px;
   opacity: 0.7;
 }
 
-.errors{
+.errors {
   color: white;
 }
