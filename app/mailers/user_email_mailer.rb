@@ -6,5 +6,4 @@ class UserEmailMailer < ApplicationMailer
     mail(to: 'raoahmar87@gmail.com', subject: "welcome to my self")
   end
 end
-class UserEmailMailer < ApplicationMailer
-end
+
