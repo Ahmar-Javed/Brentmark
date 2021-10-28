@@ -4,7 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :password,
-            format: { with: /(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*\d){1,})(?=(.*\W){1,})(?!.*\s).{8,}/,
-                      message: ' -Password must contain at least (1) special characters. Password must contain at least (1) uppercase letter. Password must contain at least (1) lowercase letter. Password must be at least 8 characters long.' }
+def password_validation
+    rules = {
+      'must contain at least one lowercase letter'  => /[a-z]+/,
+      'must contain at least one uppercase letter'  => /[A-Z]+/,
+      'must contain at least one digit'             => /\d+/,
+      'must contain at least one special character' => /[^A-Za-z0-9]+/
+    }
+
+    rules.each do |message, regex|
+      errors.add( :password, message ) unless password.match( regex )
+    end
+     validate :password_validation
+  end
 end
