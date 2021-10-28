@@ -11,10 +11,9 @@ def password_validation
       'must contain at least one digit'             => /\d+/,
       'must contain at least one special character' => /[^A-Za-z0-9]+/
     }
-
-    rules.each do |message, regex|
-      errors.add( :password, message ) unless password.match( regex )
-    end
-     validate :password_validation
+  rules.each do |message, regex|
+    errors.add(:password, message) unless password.match(regex)
+  end
+    validate :password_validation
   end
 end
