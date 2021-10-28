@@ -9,6 +9,7 @@ class User < ApplicationRecord
       'must contain at least one digit'             => /\d+/,
       'must contain at least one special character' => /[^A-Za-z0-9]+/
     }
+
     rules.each do |message, regex|
       errors.add(:password, message) unless password.match(regex)
     end
