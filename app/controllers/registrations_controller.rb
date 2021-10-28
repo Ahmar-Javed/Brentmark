@@ -35,4 +35,11 @@ def create
         end
     end
   end
+
+  def confirm
+       #  @user = User.find_by_confirmation_token!(params[:id])
+       #  if @user.update_attributes(confirmed: true)
+       #      redirect_to login_path
+       # end
+  end
 end

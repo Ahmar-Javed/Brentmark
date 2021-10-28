@@ -6,5 +6,5 @@
     sign_in(resource)
     render "root_path"
 
-   end
   end
+end
