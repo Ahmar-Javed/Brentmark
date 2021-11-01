@@ -43,6 +43,9 @@ Devise.setup do |config|
 
   config.sign_out_via = :delete
   
+  config.reset_password_keys = [ :login ]
+
+  config.confirmation_keys = [ :login ]
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
