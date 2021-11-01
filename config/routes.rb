@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     root "devise/sessions#new"  
     get '/:token/confirm_email/', :to =>'devise/sessions#new', as: 'confirm_email'
   end
+  resources :users
+
 end
 
 

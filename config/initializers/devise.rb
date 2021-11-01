@@ -19,7 +19,7 @@ Devise.setup do |config|
 
   require 'devise/orm/active_record'
 
-  config.authentication_keys = [:email]
+  #config.authentication_keys = [:email]
 
   config.case_insensitive_keys = [:email]
 
@@ -79,7 +79,7 @@ Devise.setup do |config|
   #   include Turbolinks::Controller
   # end
 
-#config.authentication_keys = [ :login ]
+  config.authentication_keys = [ :login ]
 
   # ==> Configuration for :registerable
 
