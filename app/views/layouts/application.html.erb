@@ -16,10 +16,10 @@
     <body>
       <%= yield %>
       <% if notice %>
-        <p class="alert alert-success"><<%= notice %></p>
+       <p class="notice white"><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+       <p class="alert white"><%= alert %></p>
       <% end %>
 
      
