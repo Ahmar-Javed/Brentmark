@@ -2,6 +2,8 @@ class User < ApplicationRecord
   
   attr_accessor :login
 
+  enum role: [:user, :admin]
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 

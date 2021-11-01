@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create(email: 'admin@Brentmark.com', password: 'Password123!@', role: 'admin' , firstname: 'Khurram', lastname: 'Sajjad', confirmed_at: Time.now.utc).skip_confirmation!
