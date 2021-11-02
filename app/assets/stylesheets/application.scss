@@ -1,18 +1,27 @@
 @import "bootstrap/scss/bootstrap";
 
 body {
-  box-sizing: border-box;
-  background: #43C6AC; 
-  background: -webkit-linear-gradient(to right, #191654, #43C6AC); 
-  background: linear-gradient(to right, #191654, #43C6AC); 
+  box-sizing: border-box; 
 }
  
 .center {
   width: 400px;
-  display: inline-block;
-  margin-left:40%;
-  margin-top: 1%;
-  color: black;
+  margin: 0 auto;
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  padding: 40px 45px;
+}
+
+.table1 {
+   max-width: 950px;
+   margin: 10% auto;
+ }
+
+.search {
+  float: right;
+}
+
+.brentmark {
+  text-align: center;
 }
 
 #form1 {
@@ -51,9 +60,9 @@ body {
 }
 
 .errors {
-  color: white;
+  color: black;
 }
 
 .white {
-  color: white;
+  color: black;
 }

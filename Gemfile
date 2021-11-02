@@ -25,6 +25,7 @@ gem 'devise'
 gem 'bootstrap', '~> 4.2.1'
 
 # Use Active Storage variant
+gem 'pg_search'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb

@@ -1,11 +1,14 @@
 class User < ApplicationRecord
-  
+  include PgSearch::Model
   attr_accessor :login
 
   enum role: [:user, :admin]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
+  
+  
+    pg_search_scope :search, :against => [:username]
 
   def password_validation
     rules = {
