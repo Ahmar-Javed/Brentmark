@@ -2,19 +2,31 @@
 
 body {
   box-sizing: border-box; 
+  color: white;
 }
  
 .center {
   width: 400px;
-  margin: 0 auto;
-  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-  padding: 40px 45px;
+  margin: 0 auto; 
+}
+
+.background {
+   background-image: url("pic1.jpg");
+   height: 110vh;
+   width: 100%;
+   background-size: cover;
 }
 
 .table1 {
    max-width: 950px;
    margin: 10% auto;
  }
+
+.paginate {
+height: 100px;
+width: 100%;
+color: black;  
+}
 
 .search {
   float: right;

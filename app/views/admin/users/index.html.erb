@@ -1,3 +1,4 @@
+<h1><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></h1>
 <h1 class="brentmark">Users of Brentmark</h1>
 <div class="table1">
   <div class="search">
@@ -5,7 +6,6 @@
     <%= text_field_tag(:query) %>
     <%= submit_tag("Search") %>
   </div>
-  
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
@@ -28,9 +28,10 @@
             <%= button_to "Delete", admin_user_path(user), data: {confirm: "Are You Sure?"}, method: :delete, class: "btn btn-danger" %>
           </td>
           <td> <%= link_to "Edit Post", edit_admin_user_path(user), class: "btn btn-success" %></td>
-          <td> <%= link_to "Show User", admin_user_path(user), class: "btn btn-primary" %></td>
-        </tr>  
+          <td> <%= link_to "Show User", admin_user_path(user), class: "btn btn-primary" %></td>  
+          </tr>      
       </tbody>
-     <% end %>
+    <% end %>
   </table>
+  <%= will_paginate @users %>
 </div>

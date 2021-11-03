@@ -6,9 +6,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-  
-  
-    pg_search_scope :search, :against => [:username]
+   
+  pg_search_scope :search, :against => [:username]
 
   def password_validation
     rules = {

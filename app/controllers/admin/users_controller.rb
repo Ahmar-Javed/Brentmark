@@ -4,7 +4,7 @@ class Admin::UsersController< ApplicationController
     if params[:query].present?
       @users = User.search_username(params[:query])
     else
-      @users= User.all
+      @users = User.paginate(page: params[:page], per_page: 5)
     end
   end
   

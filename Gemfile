@@ -25,7 +25,12 @@ gem 'devise'
 gem 'bootstrap', '~> 4.2.1'
 
 # Use Active Storage variant
+gem 'kaminari', '~> 0.16.3'
+
 gem 'pg_search'
+
+gem 'will_paginate', '~> 3.3'
+
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
