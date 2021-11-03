@@ -25,7 +25,7 @@
           <td><%= user.username%></td>
           <td><%= user.email%></td>
           <td>
-            <%= button_to "Delete", admin_user_path(user), data: {confirm: "Are You Sure?"}, method: :delete, class: "btn btn-danger" %>
+            <%= button_to "Delete", admin_user_path(user), method: :delete, class: "confirm btn btn-danger",remote: true %>
           </td>
           <td> <%= link_to "Edit Post", edit_admin_user_path(user), class: "btn btn-success" %></td>
           <td> <%= link_to "Show User", admin_user_path(user), class: "btn btn-primary" %></td>  
@@ -33,9 +33,8 @@
       </tbody>
     <% end %>
   </table>
-  
+
    <h3>Download File</h3>
    <%= link_to "Download CSV", admin_users_path(format: "csv"), class: "btn btn-primary"%>
-
-  <%= will_paginate @users %>
+   <%= will_paginate @users %>
  </div>
