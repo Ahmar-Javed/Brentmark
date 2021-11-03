@@ -1,0 +1,59 @@
+@import "bootstrap/scss/bootstrap";
+
+body {
+  box-sizing: border-box;
+  background: #43C6AC; 
+  background: -webkit-linear-gradient(to right, #191654, #43C6AC); 
+  background: linear-gradient(to right, #191654, #43C6AC); 
+}
+ 
+.center {
+  width: 400px;
+  display: inline-block;
+  margin-left:40%;
+  margin-top: 1%;
+  color: black;
+}
+
+#form1 {
+  width: 400px;
+  margin-left:40%;
+  margin-bottom: 2%;
+  color: black;
+  display:none;
+}
+
+.inputfields {
+  width: 300px;
+  line-height: 10px;
+  border-radius: 25px;
+  height: 25px;
+  margin-bottom: 17px;
+  border-style: none;
+}
+
+.margin-bottom {
+  margin-bottom: 8px;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
+.button {
+  width: 300px;
+  border-radius: 25px;
+}
+
+.description {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.errors {
+  color: white;
+}
+
+.white {
+  color: white;
+}

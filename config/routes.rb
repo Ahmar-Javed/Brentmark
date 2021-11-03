@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users, :controllers => { registrations: 'registrations', confirmations: "confirmations"}
+  devise_scope :user do  
+    root "devise/sessions#new"  
+    get '/:token/confirm_email/', :to =>'devise/sessions#new', as: 'confirm_email'
+  end
+  resources :users
+
 end
+
+
