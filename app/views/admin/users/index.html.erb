@@ -33,5 +33,9 @@
       </tbody>
     <% end %>
   </table>
+  
+   <h3>Download File</h3>
+   <%= link_to "Download CSV", admin_users_path(format: "csv"), class: "btn btn-primary"%>
+
   <%= will_paginate @users %>
-</div>
+ </div>
