@@ -4,7 +4,3 @@ $(document).ready(function(){
   });
 })
  
-$(document).ready(function(){
- $('.confirm').on('click', function(){
- confirm("are you sure you want to deleye user")
-  });})

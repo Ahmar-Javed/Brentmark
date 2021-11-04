@@ -1,10 +1,14 @@
 class User < ApplicationRecord
+  invitable named_by: :username
+
+  include Invitation::User
+
   include PgSearch::Model
   attr_accessor :login
 
-  enum role: [:user, :admin]
+  enum role: [:client, :admin]
 
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
    
   pg_search_scope :search, :against => [:username]
