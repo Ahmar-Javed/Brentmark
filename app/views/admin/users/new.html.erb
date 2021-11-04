@@ -1,19 +1,20 @@
 <h1> Add a new User</h1>
 
-  <%= form_with model: @user, url: admin_users_path do |f| %>
-    <%= f.label :Role%><br>
-    <%= f.text_field :Role %> <br>
+<%= form_with model: @user, url: admin_users_path do |f| %>
 
-    <%= f.label :firstname%><br>
-    <%= f.text_field :firstname%> <br>
+  <%= f.label :role%><br>
+  <%= f.text_field :role %> <br>
 
-      <%= f.label :lastname%><br>
-    <%= f.text_field :lastname%> <br>
+  <%= f.label :firstname%><br>
+  <%= f.text_field :firstname%> <br>
 
-      <%= f.label :email%><br>
-    <%= f.email_field :email%> <br>
+  <%= f.label :lastname%><br>
+  <%= f.text_field :lastname%> <br>
 
-    <%= f.submit %>
+  <%= f.label :email%><br>
+  <%= f.email_field :email%> <br>
 
-  <% end %>
+  <%= f.submit %>
+
+<% end %>
 

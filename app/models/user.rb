@@ -1,9 +1,7 @@
 class User < ApplicationRecord
-  invitable named_by: :username
-
-  include Invitation::User
-
+ 
   include PgSearch::Model
+  
   attr_accessor :login
 
   enum role: [:client, :admin]
@@ -22,29 +20,24 @@ class User < ApplicationRecord
     }
 
     rules.each do |message, regex|
-      errors.add(:password, message) unless password.match(regex)
+     return errors.add(:password, message) unless password.match(regex)
     end
-    validate :password_validation
   end
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-    where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    if (login = conditions.delete(:login))
+    where("lower(username) = :value OR lower(email) = :value", { value: login.downcase }).first
     else
-      if conditions[:username].nil?
-        where(conditions).first
-      else
-        where(username: conditions[:username]).first
-      end
-   end
+    where(conditions).first
+    end
   end
   
   def self.to_csv
     CSV.generate do |csv|
       csv << column_names
       all.each do |user|
-        csv<< user.attributes.values_at(*column_names) 
+        csv << user.attributes.values_at(*column_names) 
       end
     end
   end  
