@@ -11,10 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if resource.role == 'admin'
-       admin_users_path
-    else
-      clients_path
-     end
+    return admin_users_path if resource.admin?
+
+    clients_path
   end
 end

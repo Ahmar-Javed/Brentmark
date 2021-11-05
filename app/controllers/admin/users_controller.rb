@@ -1,6 +1,7 @@
 class Admin::UsersController< ApplicationController
   require 'csv'
- 
+  before_action :authorize_admin
+
   def new
     @user= User.new
   end
@@ -29,5 +30,11 @@ class Admin::UsersController< ApplicationController
     @user= User.find(params[:id])
     @user.destroy
     redirect_to admin_users_path, :notice=> "user has been deleted"
+  end
+
+  protected
+
+  def authorize_admin
+    redirect_to new_user_session_path unless current_user.admin?
   end
 end

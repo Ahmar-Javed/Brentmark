@@ -5,7 +5,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 import $ from 'jquery';
-require("confirm")
-require("new")
+require('./confirm')
+require('./new')
 global.$ = jQuery;
 
