@@ -15,7 +15,11 @@
       
     </head>
     <body>
-      <%= yield %>
+      <div class="bg">
+          <%= yield %>
+      </div>
+    
+  
       <% if notice %>
        <p class="notice white"><%= notice %></p>
       <% end %>

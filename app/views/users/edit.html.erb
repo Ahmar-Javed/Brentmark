@@ -1,7 +1,7 @@
-<%= render 'navbar' %>
+
 <div class="jumbotron">
 
-  <%= form_for @user, url: admin_user_path, method: "put" do |f| %>
+  <%= form_for @user, url: edit_user_registration_path,remote: true do |f| %>
   
     <div class="field">
       <%= f.label :first_name %><br />
@@ -24,11 +24,11 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Update User", class: "btn btn-warning margin-top button" %>
+      <%= f.submit "Update User", class: "btn btn-primary margin-top button" %>
     </div>
 
   <% end %>
 
-   <%= link_to 'Back', admin_users_path , class: "btn btn-dark margin-top"  %>
+  <%= link_to 'Back', users_path , class: "btn btn-dark margin-top"  %>
 
 </div>

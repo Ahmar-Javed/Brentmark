@@ -27,6 +27,16 @@ class Admin::UsersController< ApplicationController
     @user= User.find(params[:id])
   end
 
+  def update
+    @user= User.find(params[:id])
+
+    if @user.update(permitted_values)
+      redirect_to admin_users_path, :notice=> "User has been updated"
+    else
+      render "edit"
+    end
+  end
+
   def destroy
     @user= User.find(params[:id])
     @user.destroy
@@ -34,6 +44,10 @@ class Admin::UsersController< ApplicationController
   end
 
   protected
+  
+  def permitted_values
+   params.require(:user).permit(:firstname, :lastname, :email, :username)
+  end
 
   def authorize_admin
     redirect_to new_user_session_path unless current_user.admin?

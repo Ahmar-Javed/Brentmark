@@ -1,10 +1,10 @@
-<h1><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></h1>
+<%= render 'navbar'%>
 <h1 class="brentmark">Users of Brentmark</h1>
 <div class="table1">
   <div class="search">
   <%= form_with(url: admin_users_path, method: :get) do |f| %>
-  <%= f.text_field :query %>
-  <%= f.submit 'Search'%>
+  <%= f.text_field :query, class: 'input' %>
+  <%= f.submit 'Search', class: 'btn btn-light'%>
   <% end %>
   </div>
   <table class="table table-striped">
@@ -29,14 +29,19 @@
           <td>
             <%= link_to "Delete", admin_user_path(user), id: "confirm", method: :delete,   class: "btn btn-danger",remote: true %>
           </td>
-          <td> <%= link_to "Edit Post", edit_admin_user_path(user), class: "btn btn-success" %></td>
+          <td> <%= link_to "Edit User", edit_admin_user_path(user), class: "btn btn-success" %></td>
           <td> <%= link_to "Show User", admin_user_path(user), class: "btn btn-primary" %></td>  
           </tr>      
       </tbody>
     <% end %>
   </table>
 
+  <div class="apple_pagination">
+    <div class="page_info">
+      <%= will_paginate @users %> 
+    </div>
+  </div>
+    
    <h3>Download File</h3>
    <%= link_to "Download CSV", admin_users_path(format: "csv"), class: "btn btn-primary"%>
-   <%= will_paginate @users %> 
  </div>
