@@ -2,18 +2,19 @@
 <h1 class="brentmark">Users of Brentmark</h1>
 <div class="table1">
   <div class="search">
-    <%= label_tag(:query, "Search for:") %>
-    <%= text_field_tag(:query) %>
-    <%= submit_tag("Search") %>
+  <%= form_with(url: admin_users_path, method: :get) do |f| %>
+  <%= f.text_field :query %>
+  <%= f.submit 'Search'%>
+  <% end %>
   </div>
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">User Name</th>
-        <th scope="col">Email</th>
+        <th scope="col" class="links"><%=sortable "First name"%></th>
+        <th scope="col" class="links"><%=sortable "Last name"%></th>
+        <th scope="col" class="links"><%=sortable "User name"%></th>
+        <th scope="col" class="links"><%=sortable "Email"%></th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -37,5 +38,5 @@
 
    <h3>Download File</h3>
    <%= link_to "Download CSV", admin_users_path(format: "csv"), class: "btn btn-primary"%>
-   <%= will_paginate @users %>
+   <%= will_paginate @users %> 
  </div>

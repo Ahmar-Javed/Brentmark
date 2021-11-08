@@ -1,4 +1,7 @@
 @import "bootstrap/scss/bootstrap";
+/*
+ *= require font-awesome
+ */
 
 body {
   box-sizing: border-box; 
@@ -15,6 +18,11 @@ body {
    width: 100%;
    background-size: cover;
    color: white;
+}
+
+.links a {
+  text-decoration: none;
+  color: black;
 }
 
 .table1 {
@@ -86,4 +94,30 @@ body {
 
 .white {
   color: black;
+}
+
+.first-row {
+  background: #4ab6f0;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.col-width {
+  width: 400px;
+  height: 70px
+}
+
+.table-striped {
+  margin-top: 10%;
+}
+
+.position {
+  position: absolute;
+  top: 60%;
+  right: 20%;
+}
+
+.Products {
+ position: absolute;
+ top: 15%;
 }

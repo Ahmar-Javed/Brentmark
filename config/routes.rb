@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get '/:token/confirm_email/', :to =>'devise/sessions#new', as: 'confirm_email'
   end
   namespace :admin do
+    resources :products
     resources :users
   end
   resources :clients

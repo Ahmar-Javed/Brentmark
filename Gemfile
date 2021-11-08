@@ -30,7 +30,11 @@ gem 'pg_search'
 
 gem 'will_paginate', '~> 3.3'
 
+gem "font-awesome-rails"
+
 gem 'invitation'
+
+gem 'ransack'
 
 # gem 'image_processing', '~> 1.2'
 gem 'devise', '~> 4.8'
