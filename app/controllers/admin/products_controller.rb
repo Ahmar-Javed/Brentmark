@@ -1,7 +1,16 @@
 class Admin::ProductsController < ApplicationController 
+  helper_method :sort_column, :sort_direction
   
   def index
-    @products= Product.all
+    if params[:query].present?
+       @products = Product.paginate(page: params[:page], per_page: 5).search_products(params[:query])
+    else
+      @products = Product.order(sort_column + ' ' + sort_direction).paginate(page: params[:page], per_page: 5)
+      respond_to do |format|
+        format.html
+        format.csv {send_data @products.to_csv}
+      end
+    end
   end
 
   def new
@@ -47,6 +56,14 @@ class Admin::ProductsController < ApplicationController
 
   def permitted_values
   params.require(:product).permit(:title, :description, :price, :status)
+  end
+
+   def sort_direction
+  %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
+
+  def sort_column
+  Product.column_names.include?(params[:sort]) ? params[:sort] : "title"
   end
 
 end

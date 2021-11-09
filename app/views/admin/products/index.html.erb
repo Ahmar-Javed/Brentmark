@@ -3,15 +3,21 @@
   <h2>Products</h2>
   <%= link_to "Add new Product", new_admin_product_path, class: "btn btn-light" %>    
 </div>
+ <div class="Productsearch">
+  <%= form_with(url: admin_products_path, method: :get) do |f| %>
+  <%= f.text_field :query, class: 'input' %>
+  <%= f.submit 'Search', class: 'btn btn-light'%>
+  <% end %>
+</div> 
 <table class="table table-striped">
   <thead class="first-row">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col" class="col-width">Title</th>
-      <th scope="col">Original Price</th>
+      <th scope="col" class="links"><%= sortable 'id'%></th>
+      <th scope="col" class="col-width links"> <%= sortable 'title'%></th>
+      <th scope="col" class="links"> <%= sortable 'price' %></th>
       <th scope="col">Category</th>
       <th scope="col">Status</th>
-      <th scope="col">Product Type</th>
+      <th scope="col" class="links">Product Type</th>
       <th scope="col">Active / InActive</th>
       <th scope="col" class="Action">Actions</th>
 
@@ -20,9 +26,9 @@
   <% @products.each do |product| %>
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td><%= product.title %></td>
-        <td><%= product.price %></td>
+        <th scope="row"><%=product.id%></th>
+        <td><%=product.title %></td>
+        <td><%=product.price %></td>
         <td>@twitter</td>
         <td><%= product.status %></td>
         <td>Otto</td>
@@ -41,3 +47,12 @@
     </tbody>
   <% end %>
 </table>
+
+ <div class="apple_pagination">
+  <div class="page_info">
+    <%= will_paginate @products %> 
+  </div>
+</div>
+
+<h3>Download File</h3>
+<%= link_to "Download CSV", admin_users_path(format: "csv"), class: "btn btn-primary"%>

@@ -9,7 +9,7 @@ class Admin::UsersController< ApplicationController
 
   def index 
     if params[:query].present?
-      @users = User.paginate(page: params[:page], per_page: 3).search(params[:query])
+      @users = User.paginate(page: params[:page], per_page: 3).search_users(params[:query])
     else
       @users = User.order(sort_column + ' ' + sort_direction).paginate(page: params[:page], per_page: 3)
       respond_to do |format|
