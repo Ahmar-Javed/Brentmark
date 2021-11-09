@@ -3,6 +3,7 @@
  *= require font-awesome
  */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+@import "trix/dist/trix.css";
 
 body {
   box-sizing: border-box; 
@@ -23,12 +24,35 @@ th {
   color:white;
 }
 
+.trix-button-row {
+  min-width: 900px;
+}
+
+.description {
+  margin-top: 20px;  
+}
+
+.trix-content {
+  min-width: 927px;  
+}
+
+.drop-down {
+  min-width: 925px;
+  height: 36px;
+  border: none;
+  border-radius:4px;
+}
+
 .background {
     background: #203647;
    height: 110vh;
    width: 100%;
    background-size: cover;
    color: white;
+}
+
+.Action {
+  text-align: center;
 }
 
 td {
@@ -139,7 +163,7 @@ td {
 }
 
 .col-width {
-  width: 400px;
+  width: 300px;
   height: 70px
 }
 
@@ -162,6 +186,7 @@ td {
 .Products {
  position: absolute;
  top: 15%;
+ left:3%;
 }
 
 .Signout {

@@ -33,7 +33,7 @@ class Admin::UsersController< ApplicationController
     if @user.update(permitted_values)
       redirect_to admin_users_path, :notice=> "User has been updated"
     else
-      render "edit"
+      render template: "edit"
     end
   end
 

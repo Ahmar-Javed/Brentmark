@@ -15,7 +15,7 @@
         <th scope="col" class="links"><%=sortable "Last name"%></th>
         <th scope="col" class="links"><%=sortable "User name"%></th>
         <th scope="col" class="links"><%=sortable "Email"%></th>
-        <th scope="col">Actions</th>
+        <th scope="col" class="Action">Actions</th>
       </tr>
     </thead>
     <% @users.each do |user| %>
@@ -27,10 +27,10 @@
           <td><%= user.username%></td>
           <td><%= user.email%></td>
           <td>
-            <%= link_to "Delete", admin_user_path(user), id: "confirm", method: :delete,   class: "btn btn-danger",remote: true %>
-          </td>
-          <td> <%= link_to "Edit User", edit_admin_user_path(user), class: "btn btn-success" %></td>
-          <td> <%= link_to "Show User", admin_user_path(user), class: "btn btn-primary" %></td>  
+            <%= link_to "Delete", admin_user_path(user), id: "confirm", method: :delete, class: "btn btn-danger",remote: true %>
+            <%= link_to "Edit User", edit_admin_user_path(user), class: "btn btn-success" %>
+            <%= link_to "Show User", admin_user_path(user), class: "btn btn-primary" %>   
+          </td>  
           </tr>      
       </tbody>
     <% end %>
