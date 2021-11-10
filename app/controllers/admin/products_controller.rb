@@ -3,9 +3,9 @@ class Admin::ProductsController < ApplicationController
   
   def index
     if params[:query].present?
-       @products = Product.paginate(page: params[:page], per_page: 5).search_products(params[:query])
+       @products = Product.paginate(page: params[:page], per_page: 3).search_products(params[:query])
     else
-      @products = Product.order(sort_column + ' ' + sort_direction).paginate(page: params[:page], per_page: 5)
+      @products = Product.order(sort_column + ' ' + sort_direction).paginate(page: params[:page], per_page: 3)
       respond_to do |format|
         format.html
         format.csv {send_data @products.to_csv}

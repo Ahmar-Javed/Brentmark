@@ -2,7 +2,6 @@ class Admin::UsersController< ApplicationController
   require 'csv'
   before_action :authorize_admin
   helper_method :sort_column, :sort_direction
-  
   def new
     @user= User.new
   end
@@ -19,6 +18,21 @@ class Admin::UsersController< ApplicationController
     end
   end
   
+  def create
+    @user = User.new(permitted_values)
+    @password = User.password
+    @user.password = @password
+    @user.password_confirmation = @password
+    @user.status= true
+    @user.skip_confirmation!
+    if @user.save   
+      UserMailer.with(user: @user, password: @password).welcome_email.deliver_now
+      redirect_to admin_users_path
+    else
+      render 'new'
+    end
+  end
+
   def show
     @user= User.find(params[:id])
   end
@@ -53,6 +67,10 @@ class Admin::UsersController< ApplicationController
     redirect_to new_user_session_path unless current_user.admin?
   end
   
+  def permitted_values
+    params.require(:user).permit(:username, :firstname, :lastname, :email, :role)
+  end
+
   def sort_direction
   %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end

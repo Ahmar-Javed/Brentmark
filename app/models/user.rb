@@ -41,4 +41,9 @@ class User < ApplicationRecord
       end
     end
   end  
+
+  def self.password
+  SecureRandom.alphanumeric() + ["!","@","$","%"].sample(1).join
+  end
+
 end
