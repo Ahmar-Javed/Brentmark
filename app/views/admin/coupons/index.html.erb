@@ -1,0 +1,48 @@
+<%= render '/admin/users/navbar'%>
+<div class="Products"> 
+  <h2>Add new Coupons</h2>
+  <%= link_to "Add new Coupon", new_admin_coupon_path, class: "btn btn-light" %>    
+</div>
+ <div class="Productsearch">
+  <%= form_with(url: admin_coupons_path, method: :get) do |f| %>
+  <%= f.text_field :query, class: 'input' %>
+  <%= f.submit 'Search', class: 'btn btn-light'%>
+  <% end %>
+</div> 
+<table class="table table-striped">
+  <thead class="first-row">
+    <tr>
+      <th scope="col" class="links"><%= sortable 'id'%></th>
+      <th scope="col" class="col-width links"> <%= sortable 'name'%></th>
+      <th scope="col" class="links"> <%= sortable 'discount' %></th>
+      <th scope="col" class="Action">Actions</th>
+
+    </tr>
+  </thead>
+  <% @coupons.each do |coupon| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%=coupon.id%></th>
+        <td><%=coupon.name %></td>
+        <td><%=coupon.discount %></td>
+        <td>
+          <%= link_to "Delete", admin_coupon_path(coupon), method: :delete, data: {confirm: 'are you sure'}, class: "btn btn-danger", remote: true %>
+          <%= link_to "Edit Product", edit_admin_coupon_path(coupon), class: "btn btn-success" %>
+          <%= link_to "Show Product", admin_coupon_path(coupon), class: "btn btn-primary" %>    
+        </td>      
+      </tr>
+
+      <div class="position">
+        <%=link_to "Show Users", admin_users_path, class: "btn btn-dark" %>
+      </div>
+
+    </tbody>
+  <% end %>
+</table>
+
+ <div class="apple_pagination">
+  <div class="page_info">
+    <%= will_paginate @coupons %> 
+  </div>
+</div>
+

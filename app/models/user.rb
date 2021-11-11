@@ -2,7 +2,7 @@ class User < ApplicationRecord
  
   include PgSearch::Model
 
-  pg_search_scope :search_users, :against => [:username]
+  pg_search_scope :search_users, :against => [:username, :firstname, :id, :email]
   
   attr_accessor :login
 

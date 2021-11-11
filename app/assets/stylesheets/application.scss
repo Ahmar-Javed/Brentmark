@@ -1,9 +1,7 @@
-@import "bootstrap/scss/bootstrap";
-/*
- *= require font-awesome
- */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 @import "trix/dist/trix.css";
+@import "bootstrap/scss/bootstrap";
+
 
 body {
   box-sizing: border-box; 

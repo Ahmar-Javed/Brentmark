@@ -4,9 +4,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-import $ from 'jquery';
+import $ from 'jquery'
 require('./confirm')
 require('./new')
+require('./select2')
 global.$ = jQuery;
 
 

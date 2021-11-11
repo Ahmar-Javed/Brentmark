@@ -1,9 +1,11 @@
 class Product < ApplicationRecord
    has_rich_text :description
+   has_and_belongs_to_many :coupons
+   belongs_to :category
    
    include PgSearch::Model
 
-   pg_search_scope :search_products, :against => [:title]
+   pg_search_scope :search_products, :against => [:title, :id]
 
    def self.to_csv
       CSV.generate do |csv|
@@ -13,4 +15,5 @@ class Product < ApplicationRecord
          end
       end
    end  
+
 end

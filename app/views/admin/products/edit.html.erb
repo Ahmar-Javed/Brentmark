@@ -13,6 +13,11 @@
       <%= f.text_field :status, autofocus: true, class: "form-control", autocomplete: "status" %>
     </div>
 
+     <div class="field">
+      <%= f.label :description %><br />
+      <%= f.rich_text_area :description, autofocus: true, class: "form-control"%>
+    </div>
+
     <div class="field">
       <%= f.label :price %><br />
       <%= f.text_field :price, autofocus: true, class: "form-control"%>
