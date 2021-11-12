@@ -15,6 +15,7 @@
       <th scope="col" class="links"><%= sortable 'id'%></th>
       <th scope="col" class="col-width links"> <%= sortable 'name'%></th>
       <th scope="col" class="links"> <%= sortable 'discount' %></th>
+      <th scope="col" class="links"> <%= sortable 'discount_type' %></th>
       <th scope="col" class="Action">Actions</th>
 
     </tr>
@@ -24,7 +25,8 @@
       <tr>
         <th scope="row"><%=coupon.id%></th>
         <td><%=coupon.name %></td>
-        <td><%=coupon.discount %></td>
+        <td><%=coupon.discount %></td>   
+        <td><%=coupon.discount_type %></td>
         <td>
           <%= link_to "Delete", admin_coupon_path(coupon), method: :delete, data: {confirm: 'are you sure'}, class: "btn btn-danger", remote: true %>
           <%= link_to "Edit Product", edit_admin_coupon_path(coupon), class: "btn btn-success" %>

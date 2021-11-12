@@ -1,6 +1,10 @@
 class Coupon < ApplicationRecord  
   include PgSearch::Model
   has_and_belongs_to_many :products
+  
+  TYPE = [:percentage, :cash].freeze
+  enum type: TYPE
+
 
   pg_search_scope :search_coupons, :against => [:name, :discount, :id]
 

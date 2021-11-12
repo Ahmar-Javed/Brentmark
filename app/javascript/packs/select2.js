@@ -10,4 +10,12 @@ $(document).ready(function(){
     width: 200
     // If you are using Bootstrap, please add　`theme: "bootstrap"` too.
   });
+
+   $('.js-searchable-type').select2({
+    placeholder: "Select a Discount Type",
+    allowClear: true,
+    width: 200
+    // If you are using Bootstrap, please add　`theme: "bootstrap"` too.
+  });
+
 });

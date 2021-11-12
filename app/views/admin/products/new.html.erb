@@ -15,7 +15,15 @@
       <div>
         <%= f.select :status, ["Published", "Publish Pending", "Draft"], {}, { :class => 'drop-down' } %>
       </div>
-     
+
+      <%= f.label :category%><br>      
+       <div>
+        <%= f.select :category_id, Category.pluck(:name, :id) , {}, { :class => 'drop-down' } %>
+      </div>
+
+      <%= f.label :main_image %>
+      <%= f.file_field :main_images, multiple: true %>
+
       <%= f.label :description, class: 'description' %>
       <%= f.rich_text_area :description %>
   

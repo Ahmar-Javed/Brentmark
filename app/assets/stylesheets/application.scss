@@ -18,8 +18,31 @@ body {
   height: 100vh;
 }
 
+.card-img-top {
+ height: 430px;
+ object-fit: cover;
+}
+
+.accordion {
+  color: black; 
+}
+
+.cart {
+  float: right;  
+}
+
+.card-group {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 th {
   color:white;
+}
+
+.card {
+  color: black;
+  margin: 20px;
 }
 
 .Productsearch {
@@ -95,6 +118,7 @@ td {
 
 .field {
   width: 300px;
+  color: black;
 }
 
 .jumbotron {

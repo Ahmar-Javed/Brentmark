@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   enum role: [:client, :admin]
 
-  devise :invitable, :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
   def password_validation

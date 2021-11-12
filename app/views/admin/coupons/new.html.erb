@@ -11,10 +11,11 @@
       <%= f.label :discount%><br>
       <%= f.text_field :discount, class: "form-control"%> <br>
      
-      <div>
-        <%= f.select :coupon_product, Product.pluck(:title) , {include_hidden: false}, class: "form-control js-searchable", multiple: true %>
-      </div>
-    
+      <%= f.select :coupon_product, Product.pluck(:title) , {include_hidden: true}, class: "form-control js-searchable", multiple: true %>
+   
+      <%= f.select :discount_type, Coupon::TYPE, class: "form-control js-searchable-type"%>
+
+
       <%= f.submit class: 'btn btn-primary margin-top' %>
 
     <% end %>

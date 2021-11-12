@@ -53,7 +53,7 @@ class Admin::CouponsController < ApplicationController
   private
 
   def permitted_values
-  params.require(:coupon).permit(:name, :discount, coupon_product: [])
+  params.require(:coupon).permit(:name,:discount_type, :discount, coupon_product: [])
   end
 
    def sort_direction

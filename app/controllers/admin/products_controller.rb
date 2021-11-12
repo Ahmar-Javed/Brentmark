@@ -23,7 +23,7 @@ class Admin::ProductsController < ApplicationController
     if @product.save
       redirect_to admin_products_path,notice => " your product has been created "
     else
-      render template: "new"
+      render 'new'
     end
   end
 
@@ -55,7 +55,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def permitted_values
-  params.require(:product).permit(:title, :description, :price, :status)
+  params.require(:product).permit(:title, :description, :price, :status, :category_id, main_images: [])
   end
 
    def sort_direction
