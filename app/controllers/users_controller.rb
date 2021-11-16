@@ -4,23 +4,23 @@ class UsersController < ApplicationController
     @user= User.find(current_user.id)
   end
 
-   def new
+  def new
     @user= User.new
   end
  
-   def show
+  def show
     @user= User.find(params[:id])
   end
 
- def edit
-  @user= User.find(params[:id])
- end
+  def edit
+    @user= User.find(params[:id])
+  end
 
- def update
+  def update
     @user= User.find(params[:id])
 
     if @user.update(permitted_values)
-      redirect_to admin_users_path, :notice=> "User has been updated"
+      redirect_to admin_users_path, :notice "User has been updated"
     else
       render template: "edit"
     end
@@ -29,8 +29,7 @@ class UsersController < ApplicationController
   protected
   
   def permitted_values
-   params.require(:user).permit(:firstname, :lastname, :email, :username)
+    params.require(:user).permit(:firstname, :lastname, :email, :username)
   end
-
 
 end

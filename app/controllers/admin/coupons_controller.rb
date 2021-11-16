@@ -2,7 +2,7 @@ class Admin::CouponsController < ApplicationController
 
   def index
     if params[:query].present?
-       @coupons = Coupon.paginate(page: params[:page], per_page: 3).search_coupons(params[:query])
+      @coupons = Coupon.paginate(page: params[:page], per_page: 3).search_coupons(params[:query])
     else
       @coupons = Coupon.order(sort_column + ' ' + sort_direction).paginate(page: params[:page], per_page: 3)
       respond_to do |format|
@@ -53,14 +53,14 @@ class Admin::CouponsController < ApplicationController
   private
 
   def permitted_values
-  params.require(:coupon).permit(:name,:discount_type, :discount, coupon_product: [])
+    params.require(:coupon).permit(:name,:discount_type, :discount, coupon_product: [])
   end
 
-   def sort_direction
-  %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 
   def sort_column
-  Coupon.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Coupon.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
 end

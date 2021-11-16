@@ -20,7 +20,7 @@ class Admin::CategoriesController< ApplicationController
      @category= Category.new(permitted_values)
 
     if @category.save
-      redirect_to admin_categories_path,notice => " your Category has been created "
+      redirect_to admin_categories_path,:notice " your Category has been created "
     else
       render template: "new"
     end
@@ -30,16 +30,16 @@ class Admin::CategoriesController< ApplicationController
     @category= Category.find(params[:id])
 
     if @category.update(permitted_values)
-      redirect_to admin_categories_path, :notice=> "User has been updated"
+      redirect_to admin_categories_path, :notice "User has been updated"
     else
       render template: "edit"
     end
   end
 
- private
+  private
 
- def permitted_values
-   params.require(:category).permit(:name)
- end
+  def permitted_values
+    params.require(:category).permit(:name)
+  end
 
 end

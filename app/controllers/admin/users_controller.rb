@@ -45,7 +45,7 @@ class Admin::UsersController< ApplicationController
     @user= User.find(params[:id])
 
     if @user.update(permitted_values)
-      redirect_to admin_users_path, :notice=> "User has been updated"
+      redirect_to admin_users_path, :notice "User has been updated"
     else
       render template: "edit"
     end
@@ -54,13 +54,13 @@ class Admin::UsersController< ApplicationController
   def destroy
     @user= User.find(params[:id])
     @user.destroy
-    redirect_to admin_users_path, :notice=> "user has been deleted"
+    redirect_to admin_users_path, :notice "user has been deleted"
   end
 
   protected
   
   def permitted_values
-   params.require(:user).permit(:firstname, :lastname, :email, :username)
+    params.require(:user).permit(:firstname, :lastname, :email, :username)
   end
 
   def authorize_admin
@@ -72,11 +72,11 @@ class Admin::UsersController< ApplicationController
   end
 
   def sort_direction
-  %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 
   def sort_column
-  User.column_names.include?(params[:sort]) ? params[:sort] : "username"
+    User.column_names.include?(params[:sort]) ? params[:sort] : "username"
   end
 
 end

@@ -3,10 +3,10 @@
   <h2>Add new Coupons</h2>
   <%= link_to "Add new Coupon", new_admin_coupon_path, class: "btn btn-light" %>    
 </div>
- <div class="Productsearch">
+<div class="Productsearch">
   <%= form_with(url: admin_coupons_path, method: :get) do |f| %>
-  <%= f.text_field :query, class: 'input' %>
-  <%= f.submit 'Search', class: 'btn btn-light'%>
+    <%= f.text_field :query, class: 'input' %>
+    <%= f.submit 'Search', class: 'btn btn-light'%>
   <% end %>
 </div> 
 <table class="table table-striped">
@@ -42,9 +42,8 @@
   <% end %>
 </table>
 
- <div class="apple_pagination">
+<div class="apple_pagination">
   <div class="page_info">
     <%= will_paginate @coupons %> 
   </div>
 </div>
-

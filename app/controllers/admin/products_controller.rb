@@ -21,12 +21,11 @@ class Admin::ProductsController < ApplicationController
     @product= Product.new(permitted_values)
 
     if @product.save
-      redirect_to admin_products_path,notice => " your product has been created "
+      redirect_to admin_products_path, :notice " your product has been created "
     else
       render 'new'
     end
   end
-
 
   def edit
     @product= Product.find(params[:id])
@@ -40,7 +39,7 @@ class Admin::ProductsController < ApplicationController
     @product= Product.find(params[:id])
 
     if @product.update(permitted_values)
-      redirect_to admin_products_path, :notice=> "product has been updated"
+      redirect_to admin_products_path, :notice "product has been updated"
     else
       render template: "edit"
     end
@@ -49,21 +48,21 @@ class Admin::ProductsController < ApplicationController
   def destroy
     @product= Product.find(params[:id])
     @product.destroy
-    redirect_to admin_products_path, :notice=> "Product has been deleted"
+    redirect_to admin_products_path, :notice "Product has been deleted"
   end
 
   private
 
   def permitted_values
-  params.require(:product).permit(:title, :description, :price, :status, :category_id, main_images: [])
+    params.require(:product).permit(:title, :description, :price, :status, :category_id, main_images: [])
   end
 
-   def sort_direction
-  %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 
   def sort_column
-  Product.column_names.include?(params[:sort]) ? params[:sort] : "title"
+    Product.column_names.include?(params[:sort]) ? params[:sort] : "title"
   end
 
 end

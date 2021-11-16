@@ -5,7 +5,6 @@ class Coupon < ApplicationRecord
   TYPE = [:percentage, :cash].freeze
   enum type: TYPE
 
-
   pg_search_scope :search_coupons, :against => [:name, :discount, :id]
 
   def self.to_csv

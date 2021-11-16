@@ -3,11 +3,9 @@
   
   <h1 class="display-4">Hello <%= @user.firstname%></h1>
   <p class="lead">Welcome to Brenmark</p>
-  <hr class="my-4">
-    <h2><%=@user.username%> </h2>
-    <h2><%=@user.email%> </h2>
-    <p class="lead">
-       <%= link_to "Edit User", edit_user_registration_path(@user), class: "btn btn-success" %>
-    </p>
+  <h2><%=@user.username%> </h2>
+  <h2><%=@user.email%> </h2>
+  <p class="lead"><%= link_to "Edit User", edit_user_registration_path(@user), class: "btn btn-success" %>
+  </p>
     
 </div>
