@@ -1,3 +1,25 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :invites, controller: 'invitation/invites', only: [:new, :create]
+  devise_for :users, :controllers => { registrations: 'registrations'}
+  devise_scope :user do  
+    root "devise/sessions#new"  
+    get '/:token/confirm_email/', :to =>'devise/sessions#new', as: 'confirm_email'
+  end
+
+  namespace :admin do
+    resources :products
+    resources :users
+    resources :categories
+    resources :coupons
+  end
+  
+  resources :users
+  match '/products/add_to_cart/:id', to: 'products#add_to_cart', as: :add_to_cart, via: [:get, :post]
+  match '/products/remove_from_cart/:id', to: 'products#remove_from_cart', as: :remove_from_cart, via: [:delete]
+  resources :products
+  resources :cart_items
+  post '/total_price', to: "cart_items#total_price"
+  resources :carts
+  resources :chekouts
+
 end

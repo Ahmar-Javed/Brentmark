@@ -1,0 +1,22 @@
+<%= render 'admin/users/navbar' %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container ShowContainer">
+    <h1> Add a new Coupon</h1>
+
+    <%= form_with model: @coupon, url: admin_coupons_path do |f| %>
+
+      <%= f.label :name%><br>
+      <%= f.text_field :name, class: "form-control" %> <br>
+
+      <%= f.label :discount%><br>
+      <%= f.text_field :discount, class: "form-control"%> <br>
+     
+      <%= f.select :coupon_product, Product.pluck(:title) , {include_hidden: true}, class: "form-control js-searchable", multiple: true %>
+   
+      <%= f.select :discount_type, Coupon::TYPE, class: "form-control js-searchable-type"%>
+
+      <%= f.submit class: 'btn btn-primary margin-top' %>
+
+    <% end %>
+  </div>
+</div>

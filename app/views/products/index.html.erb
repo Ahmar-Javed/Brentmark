@@ -1,0 +1,18 @@
+<%= render '/admin/users/navbar'%>
+<div class="Products_cart">
+
+  <div class="card-group">
+    <% @products.each do |product| %>
+      <div class="card" style="width: 14rem;">
+        <div>
+          <%=  image_tag product.main_images.first, class: "card-img-top"  %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%=product.title%></h5>
+          <p class="card-text"><%=product.price%>$</p>
+          <%= link_to "Add To Cart", cart_items_path(product_id: product), method: :post, class: "btn btn-primary" %>    
+          <%= link_to "Details", product_path(product), class: "btn btn-primary cart" %>    
+        </div>
+      </div>
+    <% end %>
+  </div>

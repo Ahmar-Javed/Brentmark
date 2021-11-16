@@ -1,0 +1,34 @@
+<%= render 'admin/users/navbar' %>
+<div class="jumbotron">
+
+  <%= form_for @coupon, url: admin_coupon_path, method: "put" do |f| %>
+  
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, class: "form-control", autocomplete: "name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :discount %><br />
+      <%= f.text_field :discount, autofocus: true, class: "form-control", autocomplete: "code" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label 'select Product' %><br />
+      <%= f.select :coupon_product, Product.pluck(:title) , {include_hidden: true}, class: "form-control js-searchable", multiple: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'select Product Type' %><br />
+      <%= f.select :discount_type, Coupon::TYPE, class: "form-control js-searchable-type"%>
+    </div>
+    
+    <%= link_to 'Back', admin_coupons_path , class: "btn btn-dark margin-top"  %>
+
+    <div class="actions">
+      <%= f.submit "Update Coupon", class: "btn btn-warning margin-top button" %>
+    </div>
+  
+  <% end %>
+
+</div>

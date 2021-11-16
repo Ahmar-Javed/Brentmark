@@ -1,0 +1,24 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container ShowContainer">
+
+    <h1> Add a new User</h1>
+
+    <%= form_with model: @user, url: admin_users_path do |f| %>
+
+      <%= f.label :role%><br>
+      <%= f.text_field :role, class: "form-control" %> <br>
+
+      <%= f.label :firstname%><br>
+      <%= f.text_field :firstname ,class: "form-control"%> <br>
+
+      <%= f.label :lastname%><br>
+      <%= f.text_field :lastname, class: "form-control"%> <br>
+
+      <%= f.label :email%><br>
+      <%= f.email_field :email, class: "form-control"%> <br>
+
+      <%= f.submit class: 'btn btn-primary margin-top' %>
+
+    <% end %>
+  </div>
+</div>

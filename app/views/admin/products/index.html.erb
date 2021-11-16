@@ -1,0 +1,58 @@
+<%= render '/admin/users/navbar'%>
+<div class="Products"> 
+  <h2>Products</h2>
+  <%= link_to "Add new Product", new_admin_product_path, class: "btn btn-light" %>    
+</div>
+ <div class="Productsearch">
+  <%= form_with(url: admin_products_path, method: :get) do |f| %>
+  <%= f.text_field :query, class: 'input' %>
+  <%= f.submit 'Search', class: 'btn btn-light'%>
+  <% end %>
+</div> 
+<table class="table table-striped">
+  <thead class="first-row">
+    <tr>
+      <th scope="col" class="links"><%= sortable 'id'%></th>
+      <th scope="col" class="col-width links"> <%= sortable 'title'%></th>
+      <th scope="col" class="links"> <%= sortable 'price' %></th>
+      <th scope="col">Category</th>
+      <th scope="col">Status</th>
+      <th scope="col" class="links">Product Type</th>
+      <th scope="col">Active / InActive</th>
+      <th scope="col" class="Action">Actions</th>
+
+    </tr>
+  </thead>
+  <% @products.each do |product| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%=product.id%></th>
+        <td><%=product.title %></td>
+        <td><%=product.price %></td>
+        <td>@twitter</td>
+        <td><%= product.status %></td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>
+          <%= link_to "Delete", admin_product_path(product), method: :delete, data: {confirm: 'are you sure'}, class: "btn btn-danger", remote: true %>
+          <%= link_to "Edit Product", edit_admin_product_path(product), class: "btn btn-success" %>
+          <%= link_to "Show Product", admin_product_path(product), class: "btn btn-primary" %>    
+        </td>      
+      </tr>
+
+      <div class="position">
+        <%=link_to "Show Users", admin_users_path, class: "btn btn-dark" %>
+      </div>
+
+    </tbody>
+  <% end %>
+</table>
+
+ <div class="apple_pagination">
+  <div class="page_info">
+    <%= will_paginate @products %> 
+  </div>
+</div>
+
+<h3>Download File</h3>
+<%= link_to "Download CSV", admin_users_path(format: "csv"), class: "btn btn-primary"%>

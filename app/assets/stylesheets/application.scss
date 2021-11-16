@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+@import "trix/dist/trix.css";
+@import "bootstrap/scss/bootstrap";
+
+body {
+  box-sizing: border-box; 
+}
+ 
+.center {
+  width: 400px;
+  margin: 0 auto; 
+}
+
+.bg {
+  background: #203647;
+  color:white;
+  height: 100vh;
+}
+
+.img-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.main-images {
+  min-width: 100px;
+  max-width: 300px;
+  float: left;
+  min-height: 100px;
+}
+
+.card-img-top {
+ height: 430px;
+ object-fit: cover;
+}
+
+.accordion {
+  color: black; 
+}
+
+.cart {
+  float: right;  
+}
+
+.card-group {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+th {
+  color:white;
+}
+
+.card {
+  color: black;
+  margin: 20px;
+}
+
+.Productsearch {
+  margin-top: 6%;  
+  float:right;
+  margin-right: 1%;
+}
+
+.trix-button-row {
+  min-width: 900px;
+}
+
+.description {
+  margin-top: 20px;  
+}
+
+.trix-content {
+  min-width: 927px;  
+}
+
+.drop-down {
+  min-width: 925px;
+  height: 36px;
+  border: none;
+  border-radius:4px;
+}
+
+.background {
+    background: #203647;
+   height: 110vh;
+   width: 100%;
+   background-size: cover;
+   color: white;
+}
+
+.Action {
+  text-align: center;
+}
+
+td {
+  color:white;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+}
+
+.btn-warning {
+  margin-top: 10px;  
+}
+
+.container {
+  margin-top: 5%;
+}
+
+.table1 {
+   max-width: 950px;
+   margin: 10% auto;
+   color:white;
+ }
+
+.table2 {
+   max-width: 800px;
+   margin: 10% auto;
+   color:white;
+   margin-top: 10%;
+}
+
+.table {
+  color:white;
+}
+
+.field {
+  width: 300px;
+  color: black;
+}
+
+.jumbotron {
+  background: #dcdcdc;
+  padding: 20px 30px;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.paginate {
+  height: 100px;
+  width: 100%;
+  color: black;  
+}
+
+.ShowContainer {
+  color: black;  
+  object-fit: contain;
+}
+
+.product-image {
+  width: 300px;
+  height: 500px;
+}
+
+.flex {
+  max-width: 900px;
+  display: flex;
+  justify-content:space-evenly;
+}
+
+.search {
+  float: right;
+}
+
+.brentmark {
+  text-align: center;
+  color: white;
+}
+
+#form1 {
+  width: 400px;
+  margin-left: 40%;
+  margin-bottom: 2%;
+  color: black;
+  display:none;
+}
+
+.inputfields {
+  width: 300px;
+  line-height: 10px;
+  border-radius: 25px;
+  height: 25px;
+  margin-bottom: 17px;
+  border-style: none;
+}
+
+.margin-bottom {
+  margin-bottom: 8px;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
+.button {
+  width: 300px;
+  border-radius: 25px;
+}
+
+.description {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.errors {
+  color: black;
+}
+
+.white {
+  color: black;
+}
+
+.first-row {
+  background: #4ab6f0;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.col-width {
+  width: 300px;
+  height: 70px
+}
+
+.table-striped {
+  margin-top: 10%;
+}
+
+.position {
+  position: absolute;
+  top: 60%;
+  right: 20%;
+}
+
+.input {
+  width: 206px;
+  height: 39px;
+  border-radius: 5px;
+}
+
+.Products {
+ position: absolute;
+ top: 15%;
+ left:3%;
+}
+
+.Signout {
+  margin-right: 50px;
+  text-decoration: none;
+  color: white;
+}
+
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; 
+}
+
+.navbar-brand {
+  font-family: 'Dancing Script', cursive;
+  margin-left: 50px;
+}
+.apple_pagination a, .apple_pagination span {
+  padding: 0.2em 0.3em; 
+}
+
+.apple_pagination .disabled {
+  color: #aaaaaa; 
+}
+
+.apple_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background-color: #bebebe;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; 
+}
+
+.apple_pagination a {
+  text-decoration: none;
+  color: black; 
+}
+
+.apple_pagination a:hover, .apple_pagination a:focus {
+  text-decoration: underline;
+}
