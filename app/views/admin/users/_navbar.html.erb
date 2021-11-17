@@ -2,5 +2,9 @@
   <a class="navbar-brand" href="#">
     <h4>Brentmark</h4>
   </a>
-  <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'Signout' %></h4>
+    <h4><%= link_to "Coupons", admin_coupons_path, class: 'btn btn-dark nav-buttons' %></h4>
+    <h4><%= link_to "Products", admin_products_path, class: 'btn btn-dark nav-buttons' %></h4>
+    <h4><%= link_to "Categories", admin_categories_path, class: 'btn btn-dark nav-buttons' %></h4>
+    <h4><%= link_to "Users", admin_users_path, class: 'btn btn-dark nav-buttons' %></h4>
+    <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'signout' %></h4> 
 </nav>

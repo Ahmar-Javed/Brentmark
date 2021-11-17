@@ -1,7 +1,8 @@
 class UsersController < ApplicationController 
-  
+
+  before_action :set_user, only: [:show, :edit, :update]
+
   def index
-    @user= User.find(current_user.id)
   end
 
   def new
@@ -9,18 +10,14 @@ class UsersController < ApplicationController
   end
  
   def show
-    @user= User.find(params[:id])
   end
 
   def edit
-    @user= User.find(params[:id])
   end
 
   def update
-    @user= User.find(params[:id])
-
-    if @user.update(permitted_values)
-      redirect_to admin_users_path, :notice "User has been updated"
+    if @user.update(user_params)
+      redirect_to admin_users_path, notice: "User has been updated"
     else
       render template: "edit"
     end
@@ -28,8 +25,11 @@ class UsersController < ApplicationController
   
   protected
   
-  def permitted_values
+  def user_params
     params.require(:user).permit(:firstname, :lastname, :email, :username)
   end
 
+  def set_user
+    @user= User.find(params[:id])
+  end
 end

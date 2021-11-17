@@ -1,6 +1,9 @@
 class Admin::ProductsController < ApplicationController 
   helper_method :sort_column, :sort_direction
-  
+
+   before_action :set_product, only: [:edit, :update, :show, :destroy]
+  before_action :check_admin
+
   def index
     if params[:query].present?
        @products = Product.paginate(page: params[:page], per_page: 3).search_products(params[:query])
@@ -18,43 +21,48 @@ class Admin::ProductsController < ApplicationController
   end
  
   def create
-    @product= Product.new(permitted_values)
+    @product= Product.new(product_params)
 
     if @product.save
-      redirect_to admin_products_path, :notice " your product has been created "
+      redirect_to admin_products_path, notice: " your product has been created "
     else
       render 'new'
     end
   end
 
   def edit
-    @product= Product.find(params[:id])
   end
 
   def show
-    @product= Product.find(params[:id])
   end
 
   def update
-    @product= Product.find(params[:id])
-
-    if @product.update(permitted_values)
-      redirect_to admin_products_path, :notice "product has been updated"
+    if @product.update(product_params)
+      redirect_to admin_products_path, notice: "product has been updated"
     else
       render template: "edit"
     end
   end
 
   def destroy
-    @product= Product.find(params[:id])
     @product.destroy
-    redirect_to admin_products_path, :notice "Product has been deleted"
+    redirect_to admin_products_path, notice: "Product has been deleted"
   end
 
   private
 
-  def permitted_values
+  def product_params
     params.require(:product).permit(:title, :description, :price, :status, :category_id, main_images: [])
+  end
+
+  def set_product
+    @product= Product.find(params[:id])
+  end
+  
+  def check_admin
+    unless current_user.admin?
+      redirect_to new_admin_user_path
+    end
   end
 
   def sort_direction
@@ -64,5 +72,4 @@ class Admin::ProductsController < ApplicationController
   def sort_column
     Product.column_names.include?(params[:sort]) ? params[:sort] : "title"
   end
-
 end

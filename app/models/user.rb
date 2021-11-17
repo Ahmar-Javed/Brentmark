@@ -2,7 +2,7 @@ class User < ApplicationRecord
  
   include PgSearch::Model
 
-  pg_search_scope :search_users, :against => [:username, :firstname, :id, :email]
+  pg_search_scope :search_users, against: [:username, :firstname, :id, :email]
   
   attr_accessor :login
 
@@ -43,7 +43,19 @@ class User < ApplicationRecord
   end  
 
   def self.password
-  SecureRandom.alphanumeric() + ["!","@","$","%"].sample(1).join
+    SecureRandom.alphanumeric() + ["!","@","$","%"].sample(1).join
   end
 
+  def self.invite(user_params)
+    @user = User.new(user_params)
+    @password = User.password
+    @user.password = @password
+    @user.password_confirmation = @password
+    @user.status= true
+    @user.skip_confirmation!
+    if @user.save   
+      UserMailer.with(user: @user, password: @password).welcome_email.deliver_now
+      return true
+    end
+  end
 end

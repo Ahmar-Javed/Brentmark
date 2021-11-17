@@ -1,5 +1,5 @@
 $(document).ready(function () {
-$(".my-select-box").on("change", function(){
+$(".my-select-box").on("change", function () {
     $.ajax({
         url: "/total_price",
         data: {
@@ -7,8 +7,8 @@ $(".my-select-box").on("change", function(){
           id: $(this).attr("id")
         },
         type: "POST",
-        error: function() {alert('error');},
-        success: function(response){
+        error: function () {alert('error');},
+        success: function (response) {
            location.reload();
          }
     });

@@ -1,7 +1,10 @@
+require 'csv'
+
 class Admin::UsersController< ApplicationController
-  require 'csv'
   before_action :authorize_admin
+  before_action :set_user, only: [:edit, :update, :show, :destroy]
   helper_method :sort_column, :sort_direction
+
   def new
     @user= User.new
   end
@@ -17,16 +20,9 @@ class Admin::UsersController< ApplicationController
       end
     end
   end
-  
+
   def create
-    @user = User.new(permitted_values)
-    @password = User.password
-    @user.password = @password
-    @user.password_confirmation = @password
-    @user.status= true
-    @user.skip_confirmation!
-    if @user.save   
-      UserMailer.with(user: @user, password: @password).welcome_email.deliver_now
+    if User::invite(user_params) 
       redirect_to admin_users_path
     else
       render 'new'
@@ -34,40 +30,35 @@ class Admin::UsersController< ApplicationController
   end
 
   def show
-    @user= User.find(params[:id])
   end
 
   def edit
-    @user= User.find(params[:id])
   end
 
   def update
-    @user= User.find(params[:id])
-
-    if @user.update(permitted_values)
-      redirect_to admin_users_path, :notice "User has been updated"
+    if @user.update(user_params)
+      redirect_to admin_users_path, notice: "User has been updated"
     else
       render template: "edit"
     end
   end
 
   def destroy
-    @user= User.find(params[:id])
     @user.destroy
-    redirect_to admin_users_path, :notice "user has been deleted"
+    redirect_to admin_users_path, notice: "user has been deleted"
   end
 
-  protected
-  
-  def permitted_values
-    params.require(:user).permit(:firstname, :lastname, :email, :username)
-  end
+  private
 
   def authorize_admin
     redirect_to new_user_session_path unless current_user.admin?
   end
+
+  def set_user
+    @user= User.find(params[:id])
+  end
   
-  def permitted_values
+  def user_params
     params.require(:user).permit(:username, :firstname, :lastname, :email, :role)
   end
 
@@ -78,5 +69,4 @@ class Admin::UsersController< ApplicationController
   def sort_column
     User.column_names.include?(params[:sort]) ? params[:sort] : "username"
   end
-
 end

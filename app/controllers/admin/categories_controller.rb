@@ -1,4 +1,6 @@
 class Admin::CategoriesController< ApplicationController
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin
 
   def index
     @categories= Category.all
@@ -9,37 +11,48 @@ class Admin::CategoriesController< ApplicationController
   end
 
   def show
-    @category= Category.find(params[:id])
   end
 
   def edit
-    @category= Category.find(params[:id])
   end
 
   def create
-     @category= Category.new(permitted_values)
+     @category= Category.new(category_params)
 
     if @category.save
-      redirect_to admin_categories_path,:notice " your Category has been created "
+      redirect_to admin_categories_path, notice: " your Category has been created "
     else
       render template: "new"
     end
   end
 
   def update
-    @category= Category.find(params[:id])
 
-    if @category.update(permitted_values)
-      redirect_to admin_categories_path, :notice "User has been updated"
+    if @category.update(category_params)
+      redirect_to admin_categories_path, notice: "User has been updated"
     else
       render template: "edit"
     end
   end
 
+  def destroy
+    @category.destroy
+    redirect_to admin_categories_path, notice: 'category is deleted'
+  end
+
   private
 
-  def permitted_values
+  def category_params
     params.require(:category).permit(:name)
   end
 
+  def set_category
+    @category= Category.find(params[:id])
+  end
+
+  def check_admin
+    unless current_user.admin?
+      redirect_to new_admin_user_path
+    end
+  end
 end

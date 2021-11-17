@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+  
   before_action :set_cart, only: [:create]
 
   def index

@@ -1,13 +1,13 @@
 <%= render '/admin/users/navbar'%>
-<div class="Products"> 
+<div class="products"> 
   <h2>Products</h2>
   <%= link_to "Add new Product", new_admin_product_path, class: "btn btn-light" %>    
 </div>
- <div class="Productsearch">
-  <%= form_with(url: admin_products_path, method: :get) do |f| %>
-  <%= f.text_field :query, class: 'input' %>
-  <%= f.submit 'Search', class: 'btn btn-light'%>
-  <% end %>
+ <div class="productsearch">
+    <%= form_with(url: admin_products_path, method: :get) do |f| %>
+      <%= f.text_field :query, class: 'input' %>
+      <%= f.submit 'Search', class: 'btn btn-light'%>
+    <% end %>
 </div> 
 <table class="table table-striped">
   <thead class="first-row">

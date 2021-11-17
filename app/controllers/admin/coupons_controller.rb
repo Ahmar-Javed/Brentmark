@@ -1,4 +1,6 @@
 class Admin::CouponsController < ApplicationController
+  before_action :set_coupon, only: [:edit, :update, :show, :destroy]
+  before_action :check_admin
 
   def index
     if params[:query].present?
@@ -13,10 +15,10 @@ class Admin::CouponsController < ApplicationController
   end
 
   def create
-    @coupon= Coupon.new(permitted_values)
+    @coupon= Coupon.new(coupon_params)
 
     if @coupon.save
-      redirect_to admin_coupons_path,notice => " your Coupon has been created "
+      redirect_to admin_coupons_path, notice: " your Coupon has been created "
     else
       render template: "new"
     end
@@ -27,33 +29,33 @@ class Admin::CouponsController < ApplicationController
   end
 
   def edit
-    @coupon= Coupon.find(params[:id])
   end
 
   def update
-    @coupon= Coupon.find(params[:id])
-
-    if @coupon.update(permitted_values)
-      redirect_to admin_coupons_path, :notice=> "Coupon has been updated"
+    if @coupon.update(coupon_params)
+      redirect_to admin_coupons_path, notice: "Coupon has been updated"
     else
       render template: "edit"
     end
   end
 
   def show
-    @coupon= Coupon.find(params[:id])
   end
 
    def destroy
     @coupon= Coupon.find(params[:id])
     @coupon.destroy
-    redirect_to admin_coupons_path, :notice=> "Coupon has been deleted"
+    redirect_to admin_coupons_path, notice: "Coupon has been deleted"
   end
 
   private
 
-  def permitted_values
+  def coupon_params
     params.require(:coupon).permit(:name,:discount_type, :discount, coupon_product: [])
+  end
+
+  def set_coupon
+    @coupon= Coupon.find(params[:id])
   end
 
   def sort_direction
@@ -62,5 +64,11 @@ class Admin::CouponsController < ApplicationController
 
   def sort_column
     Coupon.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def check_admin
+    unless current_user.admin?
+      redirect_to new_admin_user_path
+    end
   end
 end

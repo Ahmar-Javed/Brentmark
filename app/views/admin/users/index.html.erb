@@ -1,6 +1,10 @@
 <%= render 'navbar'%>
 <h1 class="brentmark">Users of Brentmark</h1>
 <div class="table1">
+<div class="users"> 
+  <h2>Users</h2>
+  <%= link_to "Invite a new user", new_admin_user_path, class: "btn btn-light" %>    
+</div>
   <div class="search">
     <%= form_with(url: admin_users_path, method: :get) do |f| %>
       <%= f.text_field :query, class: 'input' %>
