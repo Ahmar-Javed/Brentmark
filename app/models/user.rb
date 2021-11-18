@@ -11,6 +11,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  validates_format_of :phone, with: /^[0-9]{11}$/, :multiline => true
+
   def password_validation
     rules = {
       'must contain at least one lowercase letter'  => /[a-z]+/,

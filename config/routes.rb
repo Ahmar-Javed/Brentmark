@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   post '/total_price', to: "cart_items#total_price"
   resources :carts
   resources :checkouts
-
+  resources :states, only: :index
+  resources :cities, only: :index
 end

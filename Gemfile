@@ -23,18 +23,13 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.2.1'
 
-# Use Active Storage variant
-gem 'kaminari', '~> 0.16.3'
-
 gem 'pg_search'
 
+gem 'city-state'
+
+gem 'allow_numeric'
+
 gem 'will_paginate', '~> 3.3'
-
-gem "font-awesome-rails"
-
-gem 'invitation'
-
-gem 'ransack'
 
 # gem 'image_processing', '~> 1.2'
 gem 'devise', '~> 4.8'
