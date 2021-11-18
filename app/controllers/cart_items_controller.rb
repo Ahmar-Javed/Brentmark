@@ -19,8 +19,7 @@ class CartItemsController < ApplicationController
 
   def total_price
     @cart_item = CartItem.find(params[:id])
-    @cart_item.quantity = params[:qty]
-    @cart_item.save
+    @cart_item.update(quantity: params[:qty])
   end
 
   def destroy
@@ -30,9 +29,6 @@ class CartItemsController < ApplicationController
   end
 
   def set_cart
-    @cart= Cart.find(session[:cart_id])
-    rescue ActiveRecord::RecordNotFound
-      @cart= Cart.create
-      session[:cart_id]= @cart.id
+    @cart = current_user.cart
   end
 end

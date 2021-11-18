@@ -1,7 +1,8 @@
 class Cart < ApplicationRecord
 
   has_many :cart_items, dependent: :destroy
-
+  belongs_to :user
+  
   def add_product(id)
     current_item = cart_items.find_by(product_id: id)
 

@@ -1,10 +1,12 @@
 class Product < ApplicationRecord
    belongs_to :category
-   
+
    has_rich_text :description
+
    has_and_belongs_to_many :coupons
-   has_many_attached :main_images
    has_many :cart_items
+
+   has_many_attached :main_images
    
    include PgSearch::Model
 

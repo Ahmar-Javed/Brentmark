@@ -2,8 +2,14 @@
   <a class="navbar-brand" href="#">
     <h4>Brentmark</h4>
   </a>
-    <h4><%= link_to "Checkout", checkouts_path, class: 'btn btn-dark nav-buttons' %></h4>
-    <h4><%= link_to "Your Cart", cart_items_path, class: 'btn btn-dark nav-buttons' %></h4>
+  <ul class="card-group">
+    <li> <h4><%= link_to "Checkout", checkouts_path, class: 'btn btn-dark nav-buttons' %></h4></li>
+    <li> <h4><%= link_to "Your Cart", checkouts_path, class: 'btn btn-dark nav-buttons' %></h4></li>
+    <li> <h4><%= link_to "Products", products_path, class: 'btn btn-dark nav-buttons' %></h4></li>
+    <li> <h4><%= link_to "Profile", users_path, class: 'btn btn-dark nav-buttons' %></h4></li>
+  </ul>
+   
+
     <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'signout' %></h4> 
      
 </nav>

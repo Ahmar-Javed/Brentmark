@@ -1,7 +1,7 @@
 class User < ApplicationRecord
- 
   include PgSearch::Model
-
+  after_create :create_empty_cart
+  has_one :cart
   pg_search_scope :search_users, against: [:username, :firstname, :id, :email]
   
   attr_accessor :login
@@ -33,6 +33,10 @@ class User < ApplicationRecord
     end
   end
   
+  def create_empty_cart
+    self.create_cart
+  end
+
   def self.to_csv
     CSV.generate do |csv|
       csv << column_names

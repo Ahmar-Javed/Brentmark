@@ -24,6 +24,15 @@ body {
   margin-top: 10px;
 }
 
+li {
+  margin-left:10px;
+  list-style:none;
+}
+
+.navbar-brand {
+  width: 200px;
+}
+
 .show {
   background-color: #203647; 
 }

@@ -1,8 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :set_invite_token, only: [:new]
-  
-  after_action :process_invite_token, only: [:create]
-  
   def new
     build_resource
     respond_to do |format|
