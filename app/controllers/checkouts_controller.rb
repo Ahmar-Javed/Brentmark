@@ -1,7 +1,10 @@
 class CheckoutsController < ApplicationController
   def index
     @cart= current_user.cart
-    @user= current_user  
+    @user= current_user
+    if params[:name]
+      @coupon = Coupon.find_by(name: params[:name])
+    end
   end
   
   def update
@@ -20,4 +23,3 @@ class CheckoutsController < ApplicationController
     params.require(:user).permit(:username,:firstname,:lastname,:country,:city, :state, :phone)
   end
 end
-

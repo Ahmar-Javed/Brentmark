@@ -34,6 +34,8 @@ gem 'will_paginate', '~> 3.3'
 # gem 'image_processing', '~> 1.2'
 gem 'devise', '~> 4.8'
 
+gem 'stripe'
+
 gem 'devise_invitable', '~> 2.0.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

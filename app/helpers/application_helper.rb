@@ -9,4 +9,7 @@ module ApplicationHelper
     CS.countries.map { |c| [c[1], c[0]] }
   end
   
+  def final_price
+    @cart.total_price.to_i - @coupon.discount.to_i
+  end
 end

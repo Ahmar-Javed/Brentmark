@@ -16,14 +16,12 @@ class Admin::CouponsController < ApplicationController
 
   def create
     @coupon= Coupon.new(coupon_params)
-
     if @coupon.save
       redirect_to admin_coupons_path, notice: " your Coupon has been created "
     else
       render template: "new"
     end
   end
-
   def new
     @coupon= Coupon.new
   end
@@ -40,6 +38,10 @@ class Admin::CouponsController < ApplicationController
   end
 
   def show
+  end
+
+  def apply_coupon
+    @coupon= Coupon.find(params[:id])
   end
 
    def destroy

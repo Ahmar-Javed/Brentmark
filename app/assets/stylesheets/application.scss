@@ -155,6 +155,22 @@ td {
   color:white;
 }
 
+.cart-item-row {
+  display: flex;
+}
+.cart-item-table {
+  width:800px;
+  float:left;
+}
+
+.coupon-jumbotron {
+  width: 400px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-left: 70px;
+  padding-bottom: 10px;
+}
+
 .field {
   width: 300px;
   color: black;
@@ -239,8 +255,14 @@ td {
 }
 
 .white {
-  color: black;
-  width: 100px;
+  color: white;
+  position: absolute;
+  bottom: 30;
+  left: 5;
+}
+
+.final-price {
+  color: white;
 }
 
 .first-row {

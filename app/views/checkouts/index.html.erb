@@ -8,7 +8,10 @@
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <table class="table cart_bg">
+        <div class="cart-item-row">
+          
+
+        <table class="col-8 table cart_bg cart-item-table">
 
           <thead>
             <tr>
@@ -21,10 +24,26 @@
           </thead>
 
           <tbody>
-           <%= render @cart.cart_items %>
+            <div>
+              <%= render @cart.cart_items %>
+            </div>
           </tbody>
         </table>
+         <div>
+              <div class="col-4 jumbotron-fluid coupon-jumbotron">
+                <div class="container ShowContainer">
+                  <h1> Apply your coupon </h1>
+                  <%= form_with  url: checkouts_path, method: :get do |f| %>
+                    <%= f.label :name%><br>
+                    <%= f.text_field :name, class: "form-control" %> <br>
+                    <%= f.submit class: "btn btn-primary margin-top" %>    
+                  <% end %>
+                </div>
+              </div>
+           </div>
       </div>
+       <h4 class="final-price">Your final price is <%=  @coupon ? final_price : @cart.total_price%>$</h4>
+     </div>
     </div>
   </div>
   <div class="accordion-item">
