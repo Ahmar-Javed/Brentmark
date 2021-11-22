@@ -37,7 +37,7 @@ li {
 }
 
 .navbar-brand {
-  width: 200px;
+  width: 100px;
 }
 
 .show {
@@ -299,13 +299,13 @@ td {
 }
 
 .signout {
-  margin-right: 50px;
+  margin-right: 20px;
   text-decoration: none;
-  color: white;
   display:flex;
 }
 
 .nav-buttons {
+  display:flex;
   float: left;
 }
 

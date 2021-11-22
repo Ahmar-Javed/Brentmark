@@ -11,7 +11,6 @@ require('./select2')
 require('./cart_item')
 require('./city_state')
 global.$ = jQuery;
-require ('allow_numeric')
 
 require("trix")
 require("@rails/actiontext")

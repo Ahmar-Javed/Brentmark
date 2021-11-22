@@ -1,0 +1,18 @@
+<div class="card jumbotron">
+    <%= form_with model: @order, url: admin_orders_path do |f|  %>
+    <h5 class="card-title">Done your payment</h5>
+    <div class="form-check">
+      <%=f.radio_button :order, 'cash' %>
+      <label class="form-check-label" for="flexRadioDefault1">
+        Pay with cash
+      </label>
+    </div>
+    <div class="form-check">
+           <%=f.radio_button :order, 'online' %>
+    <label class="form-check-label" for="flexRadioDefault2">
+        Pay via card
+      </label>
+    </div>
+    <%= f.submit 'Order Now', class: 'btn btn-primary'%>
+    <% end %>
+</div>

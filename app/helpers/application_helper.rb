@@ -10,6 +10,6 @@ module ApplicationHelper
   end
   
   def final_price
-    @cart.total_price.to_i - @coupon.discount.to_i
+    @coupon ? current_user.cart.total_price.to_i - @coupon.discount.to_i : current_user.cart.total_price
   end
 end

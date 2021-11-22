@@ -1,0 +1,33 @@
+<div class="products"> 
+  <h2>Order Listing</h2>   
+</div>
+
+<table class="table table-striped">
+  <thead class="first-row">
+    <tr>
+      <th scope="col" class="links"><%= sortable 'id'%></th>
+      <th scope="col" class="col-width links"> <%= sortable 'username'%></th>
+      <th scope="col" class="links"> <%= sortable 'email' %></th>
+      <th scope="col" class="links">phone</th>
+      <th scope="col" class="links">Order Price</th>
+      <th scope="col" class="Action">Actions</th>
+
+    </tr>
+  </thead>
+  <% @orders.each do |order| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%=order.user.id%></th>
+        <td><%=order.user.username %></td>
+        <td><%=order.user.email %></td>
+        <td><%=order.user.phone %></td>
+        <td><%=order.final_price %>$</td>
+        <td>
+          <%= link_to "Show details", admin_order_path(order), class: "btn btn-primary" %>    
+        </td>      
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+
+ 

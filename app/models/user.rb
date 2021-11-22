@@ -2,6 +2,9 @@ class User < ApplicationRecord
   include PgSearch::Model
   after_create :create_empty_cart
   has_one :cart
+
+  has_many :orders
+
   pg_search_scope :search_users, against: [:username, :firstname, :id, :email]
   
   attr_accessor :login

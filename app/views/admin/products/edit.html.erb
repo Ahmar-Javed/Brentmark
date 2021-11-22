@@ -1,8 +1,5 @@
-<%= render 'admin/users/navbar' %>
 <div class="jumbotron">
-
   <%= form_for @product, url: admin_product_path, method: "put" do |f| %>
-  
     <div class="field">
       <%= f.label :title %><br />
       <%= f.text_field :title, autofocus: true, class: "form-control", autocomplete: "title" %>
@@ -35,10 +32,8 @@
    
     <div class="actions">
       <%= f.submit "Update Product", class: "btn btn-warning margin-top button" %>
-    </div>
-    
+    </div>  
   <% end %>
 
   <%= link_to 'Back', admin_products_path , class: "btn btn-dark margin-top"  %>
-
 </div>
