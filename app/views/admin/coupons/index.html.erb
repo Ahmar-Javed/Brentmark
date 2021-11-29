@@ -1,8 +1,8 @@
-<div class="Products"> 
+<div class="products"> 
   <h2>Add new Coupons</h2>
   <%= link_to "Add new Coupon", new_admin_coupon_path, class: "btn btn-light" %>    
 </div>
-<div class="Productsearch">
+<div class="productsearch">
   <%= form_with(url: admin_coupons_path, method: :get) do |f| %>
     <%= f.text_field :query, class: 'input' %>
     <%= f.submit 'Search', class: 'btn btn-light'%>

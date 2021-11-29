@@ -1,47 +1,46 @@
 <div class="formError"></div>
-<div>
-  <h2>Sign up</h2>
+<div class="card mt-4" id="card-dimension">
+  <div class="center">
+    <h2>Sign up</h2>
 
-  <%= form_for resource, as: resource_name, url: user_registration_path,remote: true, method: :post do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for resource, as: resource_name, url: user_registration_path,remote: true, method: :post do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div>
+        <%= f.label :first_name %><br />
+        <%= f.text_field :firstname, autofocus: true, class: "form-control", autocomplete: "first_name" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :firstname, autofocus: true, class: "inputfields", autocomplete: "first_name" %>
-    </div>
+      <div>
+        <%= f.label :last_name %><br />
+        <%= f.text_field :lastname, autofocus: true, class: "form-control", autocomplete: "last_name" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :lastname, autofocus: true, class: "inputfields", autocomplete: "last_name" %>
-    </div>
+      <div >
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, class: "inputfields", autocomplete: "email" %>
-    </div>
+      <div>
+        <%= f.label :user_name %><br />
+        <%= f.text_field :username, autofocus: true, class: "form-control"%>
+      </div>
 
-    <div class="field">
-      <%= f.label :user_name %><br />
-      <%= f.text_field :username, autofocus: true, class: "inputfields"%>
-    </div>
+      <div>
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <% end %><br />
+        <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %><br>
+        <em class="description">Password must contain minimum 8 characters, To make it stronger use upper case or lower case letter, numbers and symbols </em>
+      </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <% end %><br />
-      <%= f.password_field :password, class: "inputfields", autocomplete: "new-password" %><br>
-      <em class="description">Password must contain minimum 8 characters, To make it stronger use upper case or lower case letter, numbers and symbols </em>
-    </div>
+      <div>
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, class: "inputfields", autocomplete: "new-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Sign up" , class: "btn btn-primary margin-bottom button" %>
-    </div>
-
-  <% end %>
-
+      <div>
+        <%= f.submit "Sign up" , class: "btn btn-primary margin-top button" %>
+      </div>
+    <% end %>
+  </div>
 </div>

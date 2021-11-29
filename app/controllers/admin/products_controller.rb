@@ -1,18 +1,17 @@
 class Admin::ProductsController < ApplicationController 
   helper_method :sort_column, :sort_direction
 
-   before_action :set_product, only: [:edit, :update, :show, :destroy]
+  before_action :set_product, only: [:edit, :update, :show, :destroy]
   before_action :check_admin
 
+  include ColSearchSort
+
   def index
-    if params[:query].present?
-       @products = Product.paginate(page: params[:page], per_page: 3).search_products(params[:query])
-    else
-      @products = Product.order(sort_column + ' ' + sort_direction).paginate(page: params[:page], per_page: 3)
-      respond_to do |format|
-        format.html
-        format.csv {send_data @products.to_csv}
-      end
+    @products = search_sort_pagination(params[:query], Product) 
+    respond_to do |format|
+      format.html
+      format.csv {send_data @products.to_csv}
+      format.json
     end
   end
 
@@ -52,7 +51,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :status, :category_id, main_images: [])
+    params.require(:product).permit(:title, :description, :price, :status, :category_id, :coupon_id, main_images: [])
   end
 
   def set_product
@@ -63,10 +62,6 @@ class Admin::ProductsController < ApplicationController
     unless current_user.admin?
       redirect_to new_admin_user_path
     end
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 
   def sort_column

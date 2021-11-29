@@ -1,3 +1,4 @@
+<% @stripe_refresh = true %>
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -32,10 +33,10 @@
               <div class="col-4 jumbotron-fluid coupon-jumbotron">
                 <div class="container ShowContainer">
                   <h1> Apply your coupon </h1>
-                  <%= form_with  url: checkouts_path, method: :get do |f| %>
+                  <%= form_with  url: checkout_index_path, method: :get do |f| %>
                     <%= f.label :name%><br>
                     <%= f.text_field :name, class: "form-control" %> <br>
-                    <%= f.submit 'Get Discount', class: "btn btn-primary margin-top" %>    
+                      <%= f.submit 'Get Discount', class: "btn btn-primary margin-top" %>  
                   <% end %>
                 </div>
               </div>

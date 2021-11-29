@@ -6,5 +6,38 @@
   <h2><%=current_user.email%> </h2>
   <p class="lead"><%= link_to "Edit User", edit_user_registration_path, class: "btn btn-success" %>
   </p>
+
+  
+    <table class="table table-striped">
+        <thead class="first-row">
+          <tr>
+            <th scope="col" class="links"> Product ID</th>
+            <th scope="col" class="links"> Product Title</th>
+            <th scope="col" class="col-width links">Product.price</th>
+            <th scope="col" class="links">Product Type</th>
+            <th scope="col" class="Action">Actions</th>
+
+          </tr>
+        </thead>
+        <% if @orders && @products %>
+        <% @orders.each do |order| %>  
+        <% order.order_items.each do |prod|%>
+        <tbody>
+          <tr> 
+            <th scope="row"><%=prod.product.id%></th>
+            <td><%=prod.product.title %></td>
+            <td><%=prod.product.price %></td>
+            <td><%=prod.product.category.name %></td>
+            <td>
+              <%= link_to "Delete", users_path(prod.product), method: :delete, data: {confirm: 'are you sure'}, class: "btn btn-danger", remote: true %>  
+            </td>      
+          </tr>
+        </tbody>
+  <% end %>
+       <% end %>
+        <% end %>
+</table>
+
+
     
 </div>

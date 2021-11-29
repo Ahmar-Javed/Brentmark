@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
+    @orders= current_user.orders
   end
 
   def new
@@ -21,6 +22,12 @@ class UsersController < ApplicationController
     else
       render template: "edit"
     end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to users_path, notice: "Product has been deleted"
   end
   
   protected

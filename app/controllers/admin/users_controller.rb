@@ -3,21 +3,20 @@ require 'csv'
 class Admin::UsersController< ApplicationController
   before_action :authorize_admin
   before_action :set_user, only: [:edit, :update, :show, :destroy]
+  
   helper_method :sort_column, :sort_direction
+
+  include ColSearchSort
 
   def new
     @user= User.new
   end
 
   def index 
-    if params[:query].present?
-      @users = User.paginate(page: params[:page], per_page: 3).search_users(params[:query])
-    else
-      @users = User.order(sort_column + ' ' + sort_direction).paginate(page: params[:page], per_page: 3)
-      respond_to do |format|
-        format.html
-        format.csv {send_data @users.to_csv}
-      end
+    @users = search_sort_pagination(params[:query], User)
+    respond_to do |format|
+      format.html
+      format.csv {send_data @users.to_csv}
     end
   end
 
@@ -60,10 +59,6 @@ class Admin::UsersController< ApplicationController
   
   def user_params
     params.require(:user).permit(:username, :firstname, :lastname, :email, :role)
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 
   def sort_column

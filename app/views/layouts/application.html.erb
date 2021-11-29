@@ -5,7 +5,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-     
+      <script src="https://js.stripe.com/v3/" async></script>
+
+      <% if @stripe_refresh %>
+        <meta name="stripe-refresh" content="<%= Time.zone.now.to_i %>" data-turbolinks-track="reload">
+      <% end %>
+      
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>

@@ -25,7 +25,7 @@ class CartItemsController < ApplicationController
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to checkouts_path
+    redirect_to checkout_index_path
   end
 
   def set_cart

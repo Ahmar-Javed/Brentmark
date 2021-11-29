@@ -6,7 +6,7 @@ require("channels")
 require("jquery")
 import $ from 'jquery'
 require('./confirm')
-require('./new')
+require('./signup')
 require('./select2')
 require('./cart_item')
 require('./city_state')

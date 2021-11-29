@@ -4,13 +4,19 @@ class Product < ApplicationRecord
    has_rich_text :description
 
    has_and_belongs_to_many :coupons
-   has_many :cart_items
+   has_many :cart_items, dependent: :destroy
 
    has_many_attached :main_images
    
    include PgSearch::Model
 
-   pg_search_scope :search_products, against: [:title, :id]
+   def to_bilder
+      Jbuilder.new do |product|
+        product.price = Stripe_price_id
+      end
+   end
+
+   pg_search_scope :search, against: [:title, :id]
 
    def self.to_csv
      CSV.generate do |csv|

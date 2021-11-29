@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   include PgSearch::Model
   after_create :create_empty_cart
-  has_one :cart
 
+  has_one :cart
   has_many :orders
 
-  pg_search_scope :search_users, against: [:username, :firstname, :id, :email]
+  pg_search_scope :search, against: [:username, :firstname, :id, :email]
   
   attr_accessor :login
 
@@ -14,7 +14,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  validates_format_of :phone, with: /^[0-9]{11}$/, :multiline => true
+  validates_format_of :phone, with: /^[0-9]{11}$/, :multiline => true, if: :phone
 
   def password_validation
     rules = {

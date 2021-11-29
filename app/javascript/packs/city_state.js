@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function () {
   var country = $("#user_country");
   var state = $("#user_state");
 

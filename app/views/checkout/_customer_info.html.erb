@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <%= form_with model: @user, url: checkout_path(@user), remote: true do |f| %>
+  <%= form_with model: @user, url: checkout_path(@user) do |f| %>
   
     <div class="field">
       <%= f.label :first_name %><br />

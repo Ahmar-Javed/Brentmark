@@ -1,6 +1,12 @@
 <div class="products"> 
-  <h2>Order Listing</h2>   
-</div>
+  <h2>Orders</h2>
+ </div>
+ <div class="productsearch">
+    <%= form_with(url: admin_orders_path, method: :get) do |f| %>
+      <%= f.text_field :query, class: 'input' %>
+      <%= f.submit 'Search', class: 'btn btn-light'%>
+    <% end %>
+</div> 
 
 <table class="table table-striped">
   <thead class="first-row">
@@ -8,10 +14,9 @@
       <th scope="col" class="links"><%= sortable 'id'%></th>
       <th scope="col" class="col-width links"> <%= sortable 'username'%></th>
       <th scope="col" class="links"> <%= sortable 'email' %></th>
-      <th scope="col" class="links">phone</th>
-      <th scope="col" class="links">Order Price</th>
+      <th scope="col" class="links"><%= sortable 'phone'%></th>
+      <th scope="col" class="links"><%= sortable 'final_price'%></th>
       <th scope="col" class="Action">Actions</th>
-
     </tr>
   </thead>
   <% @orders.each do |order| %>
@@ -29,5 +34,3 @@
     </tbody>
   <% end %>
 </table>
-
- 

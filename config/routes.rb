@@ -15,15 +15,21 @@ Rails.application.routes.draw do
     resources :coupons
     resources :orders
   end
+
+  namespace :api do 
+    namespace :v1 do 
+      resources :products
+    end
+  end
   
   resources :users
   match '/products/add_to_cart/:id', to: 'products#add_to_cart', as: :add_to_cart, via: [:get, :post]
   match '/products/remove_from_cart/:id', to: 'products#remove_from_cart', as: :remove_from_cart, via: [:delete]
   resources :products
   resources :cart_items
-  post '/total_price', to: "cart_items#total_price"
+  post '/total_price', to: 'cart_items#total_price'
   resources :carts
-  resources :checkouts
+  resources :checkout
   resources :states, only: :index
   resources :cities, only: :index
 end

@@ -17,7 +17,6 @@
       <th scope="col">Category</th>
       <th scope="col">Status</th>
       <th scope="col" class="links">Product Type</th>
-      <th scope="col">Active / InActive</th>
       <th scope="col" class="Action">Actions</th>
 
     </tr>
@@ -30,8 +29,7 @@
         <td><%=product.price %></td>
         <td>@twitter</td>
         <td><%= product.status %></td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td><%=product.category.name %></td>
         <td>
           <%= link_to "Delete", admin_product_path(product), method: :delete, data: {confirm: 'are you sure'}, class: "btn btn-danger", remote: true %>
           <%= link_to "Edit Product", edit_admin_product_path(product), class: "btn btn-success" %>

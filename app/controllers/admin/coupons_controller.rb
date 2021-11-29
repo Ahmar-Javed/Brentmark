@@ -1,16 +1,14 @@
 class Admin::CouponsController < ApplicationController
   before_action :set_coupon, only: [:edit, :update, :show, :destroy]
   before_action :check_admin
+  
+  include ColSearchSort
 
   def index
-    if params[:query].present?
-      @coupons = Coupon.paginate(page: params[:page], per_page: 3).search_coupons(params[:query])
-    else
-      @coupons = Coupon.order(sort_column + ' ' + sort_direction).paginate(page: params[:page], per_page: 3)
-      respond_to do |format|
-        format.html
-        format.csv {send_data @coupons.to_csv}
-      end
+    @coupons = search_sort_pagination(params[:query], Coupon)
+    respond_to do |format|
+      format.html
+      format.csv {send_data @coupons.to_csv}
     end
   end
 
@@ -22,12 +20,12 @@ class Admin::CouponsController < ApplicationController
       render template: "new"
     end
   end
+  
   def new
     @coupon= Coupon.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @coupon.update(coupon_params)
@@ -53,15 +51,11 @@ class Admin::CouponsController < ApplicationController
   private
 
   def coupon_params
-    params.require(:coupon).permit(:name,:discount_type, :discount, coupon_product: [])
+    params.require(:coupon).permit(:name,:discount_type, :discount, product_ids: [])
   end
 
   def set_coupon
     @coupon= Coupon.find(params[:id])
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 
   def sort_column

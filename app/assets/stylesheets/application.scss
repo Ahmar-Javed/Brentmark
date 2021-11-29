@@ -4,6 +4,7 @@
 
 body {
   box-sizing: border-box; 
+  background: #203647;
 }
  
 .center {
@@ -12,9 +13,14 @@ body {
 }
 
 .bg {
-  background: #203647;
   color:white;
-  height: 100vh;
+  height: 800px;
+}
+
+.product-img {
+  width: 250px;
+  height:360px;  
+  object-fit:cover;
 }
 
 .users {
@@ -29,6 +35,13 @@ select {
   height: 36px;
   border: none;
   border-radius:4px;
+}
+
+#card-dimension {
+  margin: 0 auto;
+  width: 30rem;
+  min-height: 30rem;
+  background-color: #eee;
 }
 
 li {
@@ -221,15 +234,6 @@ td {
   margin-bottom: 2%;
   color: black;
   display:none;
-}
-
-.inputfields {
-  width: 300px;
-  line-height: 10px;
-  border-radius: 25px;
-  height: 25px;
-  margin-bottom: 17px;
-  border-style: none;
 }
 
 .margin-bottom {

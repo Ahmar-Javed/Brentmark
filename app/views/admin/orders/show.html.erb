@@ -5,6 +5,7 @@
     <p><%= current_user.username%></p>
 
     <h3>Order Details</h3>
+    
     <% @order_items.each do |order_item|%>
     <h4>Product Title: <%= order_item.product.title %></h4>
     <p>Product Price: <%= order_item.product.price %></p>

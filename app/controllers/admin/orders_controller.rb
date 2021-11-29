@@ -1,8 +1,10 @@
 class Admin::OrdersController < ApplicationController
-  include ApplicationHelper
+  include ColSearchSort
+
+  helper_method :sort_column, :sort_direction
 
   def index
-    @orders = Order.all
+    @orders = search_sort_pagination(params[:query], Order)
   end
 
   def new
@@ -11,17 +13,10 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order_items = @order.order_items
+    @order_items = @order.order_items.includes(:order)
   end
 
-  def create
-    if params[:order] == 'cash'
-      @order = current_user.orders.create(final_price: final_price)
-      current_user.cart.cart_items.each do |cart_item|
-        @order.order_items.create(quantity: cart_item.quantity, product: cart_item.product)
-      end
-      current_user.cart.cart_items.destroy_all
-      redirect_to checkouts_path, notice: 'Your Order is created'
-    end
+  def sort_column
+    Order.column_names.include?(params[:sort]) ? params[:sort] : "final_price"
   end
 end

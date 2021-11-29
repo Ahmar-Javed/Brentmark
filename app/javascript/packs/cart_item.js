@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $(".my-select-box").on("change", function () {
     $.ajax({
         url: "/total_price",
