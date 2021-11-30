@@ -23,13 +23,15 @@ Rails.application.routes.draw do
   end
   
   resources :users
-  match '/products/add_to_cart/:id', to: 'products#add_to_cart', as: :add_to_cart, via: [:get, :post]
-  match '/products/remove_from_cart/:id', to: 'products#remove_from_cart', as: :remove_from_cart, via: [:delete]
   resources :products
+  resources :cart_price
   resources :cart_items
-  post '/total_price', to: 'cart_items#total_price'
-  resources :carts
-  resources :checkout
   resources :states, only: :index
   resources :cities, only: :index
+  resources :orders
+  post '/total_price', to: 'cart_items#total_price'
+  put '/add_order_info/:id', to: 'checkouts#add_order_info', as: 'add_order_info'
+  get '/confirm_order/:id', to: 'checkouts#confirm_order', as: 'confirm_order'
+  resources :carts
+  resources :checkouts
 end

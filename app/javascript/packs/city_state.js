@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function () {
-  var country = $("#user_country");
-  var state = $("#user_state");
+  var country = $("#country");
+  var state = $("#state");
 
   $(country).on("change", function(){
     $.ajax({

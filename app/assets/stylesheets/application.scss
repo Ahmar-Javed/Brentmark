@@ -14,7 +14,6 @@ body {
 
 .bg {
   color:white;
-  height: 800px;
 }
 
 .product-img {
@@ -97,6 +96,12 @@ th {
   margin: 20px;
 }
 
+.productcart {
+  width: 350px;
+  margin: 10px auto;
+
+}
+
 .productsearch {
   margin-top: 6%;  
   float:right;
@@ -105,6 +110,12 @@ th {
 
 .trix-button-row {
   min-width: 900px;
+}
+
+.productsInCart {
+  display: inline-flex;
+  max-width: 800px;
+  min-height: 500px;
 }
 
 .description {
@@ -124,7 +135,6 @@ th {
 
 .background {
     background: #203647;
-   height: 110vh;
    width: 100%;
    background-size: cover;
    color: white;

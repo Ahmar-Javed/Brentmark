@@ -1,8 +1,10 @@
 class CartItemsController < ApplicationController
   before_action :set_cart, only: [:create, :index]
+  before_action :set_product, only: :create
+  before_action :set_cart_item, only: [:total_price, :destroy]
 
   def index
-    @cart_items= @cart.cart_items
+    @cart_items = @cart.cart_items
   end
 
   def new
@@ -10,25 +12,33 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    product= Product.find(params[:product_id])
-    @cart_items= @cart.add_product(product.id)
+    @cart_items = @cart.add_product(@product.id)
     if @cart_items.save
-       redirect_to products_path, notice: 'product added to cart'
+      redirect_to products_path, notice: 'product added to cart'
     end
   end
 
   def total_price
-    @cart_item = CartItem.find(params[:id])
     @cart_item.update(quantity: params[:qty])
   end
 
   def destroy
-    @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to checkout_index_path
+    redirect_to checkouts_path
   end
 
   def set_cart
     @cart = current_user.cart
+  end
+
+  def set_cart_item
+    @cart_item = CartItem.find(params[:id])
+  end
+
+  def set_product
+    @product = Product.find_by(id: params[:id])
+    return if @product.present?
+
+    redirect_to root_path, alert: 'Invalid Access'
   end
 end

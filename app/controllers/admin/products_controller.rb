@@ -2,7 +2,6 @@ class Admin::ProductsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   before_action :set_product, only: [:edit, :update, :show, :destroy]
-  before_action :check_admin
 
   include ColSearchSort
 
@@ -10,18 +9,17 @@ class Admin::ProductsController < ApplicationController
     @products = search_sort_pagination(params[:query], Product) 
     respond_to do |format|
       format.html
-      format.csv {send_data @products.to_csv}
+      format.csv { send_data @products.to_csv }
       format.json
     end
   end
 
   def new
-    @product= Product.new
+    @product = Product.new
   end
  
   def create
-    @product= Product.new(product_params)
-
+    @product = Product.new(product_params)
     if @product.save
       redirect_to admin_products_path, notice: " your product has been created "
     else
@@ -29,11 +27,9 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
-  def show
-  end
+  def show; end
 
   def update
     if @product.update(product_params)
@@ -55,13 +51,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def set_product
-    @product= Product.find(params[:id])
-  end
-  
-  def check_admin
-    unless current_user.admin?
-      redirect_to new_admin_user_path
-    end
+    @product = Product.find(params[:id])
   end
 
   def sort_column

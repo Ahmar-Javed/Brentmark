@@ -1,9 +1,7 @@
 module Api
   module V1
 
-    class ProductsController < ApplicationController 
-      skip_before_action :verify_authenticity_token, :authenticate_user!
-
+    class ProductsController < ApplicationController::API
       def index
         @products = Product.all 
         render json: @products
@@ -19,7 +17,7 @@ module Api
         if @product.save
           render json: @product 
         else
-          render json: {'task': 'task failed'}
+          render json: {error: @product.errors.full_messaages.to_sentence}
         end
       end
     

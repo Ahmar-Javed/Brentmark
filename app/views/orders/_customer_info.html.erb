@@ -1,0 +1,58 @@
+<div class="jumbotron">
+  <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+  
+    <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :firstname, autofocus: true, class: "form-control", autocomplete: "first_name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :lastname, autofocus: true, class: "form-control", autocomplete: "last_name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone %><br />
+      <%= f.text_field :phone, autofocus: true, class: "form-control" %>
+    </div>
+
+     <div class="field">
+      <%= f.label :zip_code %><br />
+      <%= f.text_field :zip_code, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_field :address, autofocus: true, class: "form-control" %>
+    </div>
+     
+    <div class="field">
+      <%= label_tag :country %>
+      <%= f.select :country, options_for_select(CS.countries.map { |c| [c[1], c[0]] } ) %>
+    </div>
+
+    <div class="field">
+    <%= label_tag :state %>
+    <%= f.select :state, options_for_select([]), class: 'user_state' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.select :city, options_for_select([]) %>
+  </div>
+
+    <div class="field">
+      <%= f.label :user_name %><br />
+      <%= f.text_field :username, autofocus: true, class: "form-control"%>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Proceed to checkouts", class: "btn btn-primary margin-top button" %>
+    </div>
+
+  <% end %>
+
+  <%= link_to 'Back', users_path , class: "btn btn-dark margin-top"  %>
+
+</div>
+

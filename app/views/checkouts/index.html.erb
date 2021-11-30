@@ -33,7 +33,7 @@
               <div class="col-4 jumbotron-fluid coupon-jumbotron">
                 <div class="container ShowContainer">
                   <h1> Apply your coupon </h1>
-                  <%= form_with  url: checkout_index_path, method: :get do |f| %>
+                  <%= form_with  url: checkouts_path, method: :get do |f| %>
                     <%= f.label :name%><br>
                     <%= f.text_field :name, class: "form-control" %> <br>
                       <%= f.submit 'Get Discount', class: "btn btn-primary margin-top" %>  
@@ -66,7 +66,7 @@
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <%= render template: 'admin/orders/new'%> 
+        <%= render template: 'orders/new'%> 
       </div>
     </div>
   </div>

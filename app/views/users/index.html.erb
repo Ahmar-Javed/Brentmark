@@ -7,37 +7,43 @@
   <p class="lead"><%= link_to "Edit User", edit_user_registration_path, class: "btn btn-success" %>
   </p>
 
-  
-    <table class="table table-striped">
-        <thead class="first-row">
-          <tr>
-            <th scope="col" class="links"> Product ID</th>
-            <th scope="col" class="links"> Product Title</th>
-            <th scope="col" class="col-width links">Product.price</th>
-            <th scope="col" class="links">Product Type</th>
-            <th scope="col" class="Action">Actions</th>
+  <table class="table table-striped">
+    <thead class="first-row">
+      <tr>
+        <th scope="col" class="links"> Product ID</th>
+        <th scope="col" class="links"> Product Title</th>
+        <th scope="col" class="col-width links">Product.price</th>
+        <th scope="col" class="links">Product Type</th>
+        <th scope="col" class="Action">Actions</th>
 
-          </tr>
+      </tr>
+    </thead>
+    <% if @orders %>
+      <% @orders.each do |order| %>  
+       <thead class="first-row">
+          <th scope="col" class="links"> Order ID</th>
+          <th scope="col" class="links"> Order status</th>
+          <th scope="col" class="col-width links">Final Price</th>
         </thead>
-        <% if @orders && @products %>
-        <% @orders.each do |order| %>  
-        <% order.order_items.each do |prod|%>
         <tbody>
-          <tr> 
-            <th scope="row"><%=prod.product.id%></th>
-            <td><%=prod.product.title %></td>
-            <td><%=prod.product.price %></td>
-            <td><%=prod.product.category.name %></td>
-            <td>
-              <%= link_to "Delete", users_path(prod.product), method: :delete, data: {confirm: 'are you sure'}, class: "btn btn-danger", remote: true %>  
-            </td>      
-          </tr>
+          <td><%=order.id %></td>
+          <td><%=order.status %></td>
+          <td><%=order.final_price %></td>
         </tbody>
-  <% end %>
-       <% end %>
+        <% order.order_items.each do |prod|%>
+          <tbody>
+            <tr> 
+              <th scope="row"><%=prod.product.id%></th>
+              <td><%=prod.product.title %></td>
+              <td><%=prod.product.price %></td>
+              <td><%=prod.product.category.name %></td>
+              <td>
+                <%= link_to "Delete", users_path(prod.product), method: :delete, data: {confirm: 'are you sure'}, class: "btn btn-danger", remote: true %>  
+              </td>      
+            </tr>
+          </tbody>
         <% end %>
-</table>
-
-
-    
+      <% end %>
+    <% end %>
+  </table>   
 </div>

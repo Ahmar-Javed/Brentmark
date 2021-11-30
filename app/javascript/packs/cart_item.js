@@ -9,7 +9,7 @@ $(".my-select-box").on("change", function () {
         type: "POST",
         error: function () {alert('error');},
         success: function (response) {
-           location.reload();
+          // do something
          }
     });
 });

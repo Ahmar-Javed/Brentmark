@@ -15,6 +15,7 @@
       <th scope="col" class="col-width links"> <%= sortable 'username'%></th>
       <th scope="col" class="links"> <%= sortable 'email' %></th>
       <th scope="col" class="links"><%= sortable 'phone'%></th>
+      <th scope="col" class="links"><%= sortable 'status'%></th>
       <th scope="col" class="links"><%= sortable 'final_price'%></th>
       <th scope="col" class="Action">Actions</th>
     </tr>
@@ -26,6 +27,7 @@
         <td><%=order.user.username %></td>
         <td><%=order.user.email %></td>
         <td><%=order.user.phone %></td>
+        <td><%=order.status %></td>
         <td><%=order.final_price %>$</td>
         <td>
           <%= link_to "Show details", admin_order_path(order), class: "btn btn-primary" %>    

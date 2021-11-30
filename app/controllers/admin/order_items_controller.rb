@@ -1,4 +1,3 @@
 class OrderItemsController < ApplicationController
-  def index
-  end
+  def index; end
 end

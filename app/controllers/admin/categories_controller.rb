@@ -1,23 +1,20 @@
-class Admin::CategoriesController< ApplicationController
+class Admin::CategoriesController < Admin::AdminsController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :check_admin
 
   def index
-    @categories= Category.all
+    @categories = Category.all
   end
 
   def new
-    @category= Category.new
+    @category = Category.new
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def create
-     @category= Category.new(category_params)
+     @category = Category.new(category_params)
 
     if @category.save
       redirect_to admin_categories_path, notice: " your Category has been created "
@@ -27,7 +24,6 @@ class Admin::CategoriesController< ApplicationController
   end
 
   def update
-
     if @category.update(category_params)
       redirect_to admin_categories_path, notice: "User has been updated"
     else
@@ -47,12 +43,6 @@ class Admin::CategoriesController< ApplicationController
   end
 
   def set_category
-    @category= Category.find(params[:id])
-  end
-
-  def check_admin
-    unless current_user.admin?
-      redirect_to new_admin_user_path
-    end
+    @category = Category.find_by(id: params[:id])
   end
 end

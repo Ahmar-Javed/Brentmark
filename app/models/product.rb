@@ -5,6 +5,7 @@ class Product < ApplicationRecord
 
    has_and_belongs_to_many :coupons
    has_many :cart_items, dependent: :destroy
+   has_many :order_items
 
    has_many_attached :main_images
    

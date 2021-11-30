@@ -1,22 +1,21 @@
 require 'csv'
 
 class Admin::UsersController< ApplicationController
-  before_action :authorize_admin
   before_action :set_user, only: [:edit, :update, :show, :destroy]
   
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column
 
   include ColSearchSort
 
   def new
-    @user= User.new
+    @user = User.new
   end
 
   def index 
-    @users = search_sort_pagination(params[:query], User)
+    @users  = search_sort_pagination(params[:query], User)
     respond_to do |format|
       format.html
-      format.csv {send_data @users.to_csv}
+      format.csv { send_data @users.to_csv }
     end
   end
 
@@ -28,11 +27,9 @@ class Admin::UsersController< ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -49,12 +46,8 @@ class Admin::UsersController< ApplicationController
 
   private
 
-  def authorize_admin
-    redirect_to new_user_session_path unless current_user.admin?
-  end
-
   def set_user
-    @user= User.find(params[:id])
+    @user = User.find(params[:id])
   end
   
   def user_params

@@ -3,18 +3,16 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
-    @orders= current_user.orders
+    @orders = current_user.orders
   end
 
   def new
-    @user= User.new
+    @user = User.new
   end
  
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -37,6 +35,6 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user= User.find(params[:id])
+    @user = User.find(params[:id])
   end
 end

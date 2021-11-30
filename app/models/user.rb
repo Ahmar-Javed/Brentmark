@@ -32,9 +32,9 @@ class User < ApplicationRecord
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))
-    where("lower(username) = :value OR lower(email) = :value", { value: login.downcase }).first
+      where("lower(username) = :value OR lower(email) = :value", { value: login.downcase }).first
     else
-    where(conditions).first
+      where(conditions).first
     end
   end
   
@@ -56,14 +56,14 @@ class User < ApplicationRecord
   end
 
   def self.invite(user_params)
-    @user = User.new(user_params)
-    @password = User.password
-    @user.password = @password
-    @user.password_confirmation = @password
-    @user.status= true
-    @user.skip_confirmation!
-    if @user.save   
-      UserMailer.with(user: @user, password: @password).welcome_email.deliver_now
+    user = User.new(user_params)
+    password = User.password
+    user.password = password
+    user.password_confirmation = password
+    user.status= true
+    user.skip_confirmation!
+    if user.save   
+      UserMailer.with(user: user, password: password).welcome_email.deliver_now
       return true
     end
   end
