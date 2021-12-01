@@ -1,50 +1,50 @@
 <h1 class="brentmark">Users of Brentmark</h1>
 <div class="table1">
-<div class="users"> 
-  <h2>Users</h2>
-  <%= link_to "Invite a new user", new_admin_user_path, class: "btn btn-light" %>    
-</div>
+  <div class="users">
+    <h2>Users</h2>
+    <%= link_to "Invite a new user", new_admin_user_path, class: "btn btn-light" %>
+  </div>
   <div class="search">
     <%= form_with(url: admin_users_path, method: :get) do |f| %>
       <%= f.text_field :query, class: 'input' %>
-      <%= f.submit 'Search', class: 'btn btn-light'%>
+      <%= f.submit 'Search', class: 'btn btn-light' %>
     <% end %>
   </div>
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
-        <th scope="col" class="links"><%= sortable 'id'%></th>
-        <th scope="col" class="links"><%=sortable "firstname"%></th>
-        <th scope="col" class="links"><%=sortable "lastname"%></th>
-        <th scope="col" class="links"><%=sortable "username"%></th>
-        <th scope="col" class="links"><%=sortable "email"%></th>
+        <th scope="col" class="links"><%= sortable 'id' %></th>
+        <th scope="col" class="links"><%= sortable "firstname" %></th>
+        <th scope="col" class="links"><%= sortable "lastname" %></th>
+        <th scope="col" class="links"><%= sortable "username" %></th>
+        <th scope="col" class="links"><%= sortable "email" %></th>
         <th scope="col" class="Action">Actions</th>
       </tr>
     </thead>
     <% @users.each do |user| %>
       <tbody>
         <tr>
-          <th scope="row"><%= user.id%></th>
-          <td><%= user.firstname%></td>
-          <td><%= user.lastname%></td>
-          <td><%= user.username%></td>
-          <td><%= user.email%></td>
+          <th scope="row"><%= user.id %></th>
+          <td><%= user.firstname %></td>
+          <td><%= user.lastname %></td>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
           <td>
-            <%= link_to "Delete", admin_user_path(user), id: "confirm", method: :delete, class: "btn btn-danger",remote: true %>
+            <%= link_to "Delete", admin_user_path(user), id: "confirm", method: :delete, class: "btn btn-danger", remote: true %>
             <%= link_to "Edit User", edit_admin_user_path(user), class: "btn btn-success" %>
-            <%= link_to "Show User", admin_user_path(user), class: "btn btn-primary" %>   
-          </td>  
-          </tr>      
+            <%= link_to "Show User", admin_user_path(user), class: "btn btn-primary" %>
+          </td>
+        </tr>
       </tbody>
     <% end %>
   </table>
 
   <div class="apple_pagination">
     <div class="page_info">
-      <%= will_paginate @users %> 
+      <%= will_paginate @users %>
     </div>
   </div>
-    
+
   <h3>Download File</h3>
-  <%= link_to "Download CSV", admin_users_path(format: "csv"), class: "btn btn-primary"%>
+  <%= link_to "Download CSV", admin_users_path(format: "csv"), class: "btn btn-primary" %>
 </div>

@@ -3,19 +3,13 @@
     <h1> Add a new Coupon</h1>
 
     <%= form_with model: @coupon, url: admin_coupons_path do |f| %>
-
-      <%= f.label :name%><br>
+      <%= f.label :name %><br>
       <%= f.text_field :name, class: "form-control" %> <br>
-
-      <%= f.label :discount%><br>
-      <%= f.text_field :discount, class: "form-control"%> <br>
-     
-      <%= f.select :product_ids, Product.pluck(:title, :id) , {include_blank: true}, class: "form-control js-searchable", multiple: true %>
-   
-      <%= f.select :discount_type, Coupon::TYPE, class: "form-control js-searchable-type"%>
-
+      <%= f.label :discount %><br>
+      <%= f.text_field :discount, class: "form-control" %> <br>
+      <%= f.select :product_ids, Product.pluck(:title, :id), { include_blank: true }, class: "form-control js-searchable", multiple: true %>
+      <%= f.select :discount_type, Coupon::TYPE, class: "form-control js-searchable-type" %>
       <%= f.submit class: 'btn btn-primary margin-top' %>
-
     <% end %>
   </div>
 </div>

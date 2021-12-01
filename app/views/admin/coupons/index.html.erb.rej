@@ -1,0 +1,24 @@
+diff a/app/views/admin/coupons/index.html.erb b/app/views/admin/coupons/index.html.erb	(rejected hunks)
+@@ -22,15 +22,15 @@
+   <% @coupons.each do |coupon| %>
+     <tbody>
+       <tr>
+-        <th scope="row"><%=coupon.id%></th>
+-        <td><%=coupon.name %></td>
+-        <td><%=coupon.discount %></td>   
+-        <td><%=coupon.discount_type %></td>
++        <th scope="row"><%= coupon.id %></th>
++        <td><%= coupon.name %></td>
++        <td><%= coupon.discount %></td>
++        <td><%= coupon.discount_type %></td>
+         <td>
+-          <%= link_to "Delete", admin_coupon_path(coupon), method: :delete, data: {confirm: 'are you sure'}, class: "btn btn-danger", remote: true %>
++          <%= link_to "Delete", admin_coupon_path(coupon), method: :delete, data: { confirm: 'are you sure' }, class: "btn btn-danger", remote: true %>
+           <%= link_to "Edit Product", edit_admin_coupon_path(coupon), class: "btn btn-success" %>
+-          <%= link_to "Show Product", admin_coupon_path(coupon), class: "btn btn-primary" %>    
+-        </td>      
++          <%= link_to "Show Product", admin_coupon_path(coupon), class: "btn btn-primary" %>
++        </td>
+       </tr>
+     </tbody>
+   <% end %>

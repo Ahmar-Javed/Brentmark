@@ -1,4 +1,4 @@
-class Admin::ProductsController < ApplicationController 
+class Admin::ProductsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   before_action :set_product, only: [:edit, :update, :show, :destroy]
@@ -6,7 +6,7 @@ class Admin::ProductsController < ApplicationController
   include ColSearchSort
 
   def index
-    @products = search_sort_pagination(params[:query], Product) 
+    @products = search_sort_pagination(params[:query], Product)
     respond_to do |format|
       format.html
       format.csv { send_data @products.to_csv }
@@ -17,7 +17,7 @@ class Admin::ProductsController < ApplicationController
   def new
     @product = Product.new
   end
- 
+
   def create
     @product = Product.new(product_params)
     if @product.save

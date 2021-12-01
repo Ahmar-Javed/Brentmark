@@ -1,20 +1,20 @@
 <div class="card jumbotron">
   <% if @order %>
-    <%= form_with model: @order, url: confirm_order_path(@order), method: :get, local: false do |f|  %>
+    <%= form_with model: @order, url: confirm_order_checkout_path(@order), method: :get, local: false do |f| %>
       <h5 class="card-title">Done your payment</h5>
       <div class="form-check">
-        <%=f.radio_button :payment_method, 'cash' %>
+        <%= f.radio_button :payment_method, 'cash' %>
         <label class="form-check-label" for="flexRadioDefault1">
           Pay with cash
         </label>
       </div>
       <div class="form-check">
-        <%=f.radio_button :payment_method, 'card' %>
+        <%= f.radio_button :payment_method, 'card' %>
         <label class="form-check-label" for="flexRadioDefault2">
-            Pay via card
+          Pay via card
         </label>
       </div>
-      <%= button_to 'Confirm Your Order',  class: 'btn btn-primary'%>
+      <%= button_to 'Confirm Your Order', class: 'btn btn-primary' %>
     <% end %>
   <% end %>
 </div>

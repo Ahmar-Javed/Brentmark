@@ -1,8 +1,8 @@
 require 'csv'
 
-class Admin::UsersController< ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show, :destroy]
-  
+
   helper_method :sort_column
 
   include ColSearchSort
@@ -11,8 +11,8 @@ class Admin::UsersController< ApplicationController
     @user = User.new
   end
 
-  def index 
-    @users  = search_sort_pagination(params[:query], User)
+  def index
+    @users = search_sort_pagination(params[:query], User)
     respond_to do |format|
       format.html
       format.csv { send_data @users.to_csv }
@@ -20,7 +20,8 @@ class Admin::UsersController< ApplicationController
   end
 
   def create
-    if User::invite(user_params) 
+    invitation = UserInvite.call(user_params: user_params) 
+    if invitation
       redirect_to admin_users_path
     else
       render 'new'
@@ -49,7 +50,7 @@ class Admin::UsersController< ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-  
+
   def user_params
     params.require(:user).permit(:username, :firstname, :lastname, :email, :role)
   end

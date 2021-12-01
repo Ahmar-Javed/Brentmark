@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
-  before_action :set_cart, only: [:create, :index]
+  before_action :set_cart, only: [:create, :index, :update_quantity]
   before_action :set_product, only: :create
-  before_action :set_cart_item, only: [:total_price, :destroy]
+  before_action :set_cart_item, only: [:update_quantity, :destroy]
 
   def index
     @cart_items = @cart.cart_items
@@ -18,8 +18,12 @@ class CartItemsController < ApplicationController
     end
   end
 
-  def total_price
+  def update_quantity
     @cart_item.update(quantity: params[:qty])
+    render json: {
+      "item-price-#{@cart_item.id}" => @cart_item.total_price,
+      total_price: @cart.total_price
+    }
   end
 
   def destroy

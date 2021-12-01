@@ -1,40 +1,39 @@
 <!doctype html>
-  <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <script src="https://js.stripe.com/v3/" async></script>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://js.stripe.com/v3/" async></script>
 
-      <% if @stripe_refresh %>
-        <meta name="stripe-refresh" content="<%= Time.zone.now.to_i %>" data-turbolinks-track="reload">
+    <% if @stripe_refresh %>
+      <meta name="stripe-refresh" content="<%= Time.zone.now.to_i %>" data-turbolinks-track="reload">
+    <% end %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <title>Brentmark</title>
+
+  </head>
+  <body>
+    <div class="bg">
+      <% if user_signed_in? && current_user.admin? %>
+        <%= render 'admin/users/navbar' %>
+      <% elsif user_signed_in? %>
+        <%= render 'users/navbar' %>
       <% end %>
-      
-      <%= csrf_meta_tags %>
-      <%= csp_meta_tag %>
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      
-      <title>Brentmark</title>
-      
-    </head>
-    <body>
-      <div class="bg">
-        <% if user_signed_in? && current_user.admin? %>
-          <%= render 'admin/users/navbar'%>
-        <% elsif user_signed_in? %>
-          <%= render 'users/navbar' %>
-        <% end %>
-        <%= yield %>
-      </div>
-    
-      <% if notice %>
-       <p class="notice white"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-       <p class="alert white"><%= alert %></p>
-      <% end %>
-    </body>
+      <%= yield %>
+    </div>
+
+    <% if notice %>
+      <p class="notice white"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert white"><%= alert %></p>
+    <% end %>
+  </body>
 </html>

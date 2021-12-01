@@ -10,30 +10,30 @@
       <%= f.text_field :status, autofocus: true, class: "form-control", autocomplete: "status" %>
     </div>
 
-     <div class="field">
+    <div class="field">
       <%= f.label :description %><br />
-      <%= f.rich_text_area :description, autofocus: true, class: "form-control"%>
+      <%= f.rich_text_area :description, autofocus: true, class: "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :price %><br />
-      <%= f.text_field :price, autofocus: true, class: "form-control"%>
+      <%= f.text_field :price, autofocus: true, class: "form-control" %>
     </div>
-    
+
     <div class="field">
       <%= f.label :main_image %>
-      <%= f.file_field :main_images, multiple: true, class: "form-control"  %>
+      <%= f.file_field :main_images, multiple: true, class: "form-control" %>
     </div>
 
-    <%= f.label :category%><br>      
+    <%= f.label :category %><br>
     <div>
-      <%= f.select :category_id, Category.pluck(:name, :id) , {}, { :class => 'drop-down' } %>
+      <%= f.select :category_id, Category.pluck(:name, :id), {}, { :class => 'drop-down' } %>
     </div>
-   
+
     <div class="actions">
       <%= f.submit "Update Product", class: "btn btn-warning margin-top button" %>
-    </div>  
+    </div>
   <% end %>
 
-  <%= link_to 'Back', admin_products_path , class: "btn btn-dark margin-top"  %>
+  <%= link_to 'Back', admin_products_path, class: "btn btn-dark margin-top" %>
 </div>

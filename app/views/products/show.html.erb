@@ -1,19 +1,19 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container ShowContainer">
     <div class="flex">
-      <div class="w-50">    
-     
+      <div class="w-50">
+
         <h3>Title:</h3>
-        <p><%=@product.title %></p>
+        <p><%= @product.title %></p>
 
         <h3>Price:</h3>
-        <p><%=@product.price %></p>
+        <p><%= @product.price %></p>
 
         <h3>Description:</h3>
-        <p><%=@product.description %></p>
+        <p><%= @product.description %></p>
 
         <h3>Status:</h3>
-        <p><%=@product.status %></p>
+        <p><%= @product.status %></p>
 
       </div>
 
@@ -24,7 +24,7 @@
           </div>
         <% end %>
       </div>
-  </div>
-  <%= link_to 'Back', products_path , class: "btn btn-dark margin-top"  %>
+    </div>
+    <%= link_to 'Back', products_path, class: "btn btn-dark margin-top" %>
   </div>
 </div>

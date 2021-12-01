@@ -1,31 +1,31 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container ShowContainer">
-     <div class="flex">
-     <div class="w-50">   
-    <h3>Title:</h3>
-    <p><%=@product.title %></p>
+    <div class="flex">
+      <div class="w-50">
+        <h3>Title:</h3>
+        <p><%= @product.title %></p>
 
-    <h3>Price:</h3>
-    <p><%=@product.price %></p>
+        <h3>Price:</h3>
+        <p><%= @product.price %></p>
 
-    <h3>Description:</h3>
-    <p><%=@product.description %></p>
+        <h3>Description:</h3>
+        <p><%= @product.description %></p>
 
-    <h3>Status:</h3>
-    <p><%=@product.status %></p>
-   </div>
-    <div>
-      <% @product.main_images.each do |image| %>
-        <div class="main-images">
-          <%= image_tag image, class: "product-img" %>
-        </div>
-      <% end %>
-     </div>
-   </div>
+        <h3>Status:</h3>
+        <p><%= @product.status %></p>
+      </div>
+      <div>
+        <% @product.main_images.each do |image| %>
+          <div class="main-images">
+            <%= image_tag image, class: "product-img" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-    <%= link_to 'Back', admin_products_path , class: "btn btn-dark margin-top"  %>
+    <%= link_to 'Back', admin_products_path, class: "btn btn-dark margin-top" %>
     <%= link_to "Edit Product", edit_admin_product_path(@product), class: "btn btn-success margin-top" %>
- 
+
   </div>
-  
+
 </div>

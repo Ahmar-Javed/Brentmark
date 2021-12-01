@@ -1,0 +1,28 @@
+diff a/app/views/admin/products/new.html.erb b/app/views/admin/products/new.html.erb	(rejected hunks)
+@@ -4,20 +4,20 @@
+ 
+     <%= form_with model: @product, url: admin_products_path do |f| %>
+ 
+-      <%= f.label :title%><br>
++      <%= f.label :title %><br>
+       <%= f.text_field :title, class: "form-control" %> <br>
+ 
+-      <%= f.label :price%><br>
+-      <%= f.text_field :price, class: "form-control"%> <br>
++      <%= f.label :price %><br>
++      <%= f.text_field :price, class: "form-control" %> <br>
+ 
+-      <%= f.label :status%><br>
++      <%= f.label :status %><br>
+       <div>
+         <%= f.select :status, ["Published", "Publish Pending", "Draft"], {}, { :class => 'drop-down' } %>
+       </div>
+ 
+-      <%= f.label :category%><br>      
++      <%= f.label :category %><br>
+       <div>
+-        <%= f.select :category_id, Category.pluck(:name, :id) , {}, { :class => 'drop-down' } %>
++        <%= f.select :category_id, Category.pluck(:name, :id), {}, { :class => 'drop-down' } %>
+       </div>
+ 
+       <%= f.label :main_image %>

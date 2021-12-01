@@ -1,14 +1,14 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container ShowContainer">
-    
+
     <h3>Name:</h3>
     <p><%= @coupon.name %></p>
 
     <h3>Discount:</h3>
     <p><%= @coupon.discount %></p>
 
-    <%= link_to 'Back', admin_coupons_path , class: "btn btn-dark margin-top"  %>
+    <%= link_to 'Back', admin_coupons_path, class: "btn btn-dark margin-top" %>
     <%= link_to "Edit Post", edit_admin_coupon_path(@coupon), class: "btn btn-success margin-top" %>
- 
+
   </div>
 </div>

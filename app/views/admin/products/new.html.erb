@@ -12,12 +12,12 @@
 
       <%= f.label :status%><br>
       <div>
-        <%= f.select :status, ["Published", "Publish Pending", "Draft"], {}, { :class => 'drop-down' } %>
+        <%= f.select :status, ["Published", "Publish Pending", "Draft"], {}, { class:  'drop-down' } %>
       </div>
 
       <%= f.label :category%><br>      
       <div>
-        <%= f.select :category_id, Category.pluck(:name, :id) , {}, { :class => 'drop-down' } %>
+        <%= f.select :category_id, Category.pluck(:name, :id) , {}, { class: 'drop-down' } %>
       </div>
 
       <%= f.label :main_image %>
@@ -25,7 +25,7 @@
 
       <%= f.label :description, class: 'description' %>
       <%= f.rich_text_area :description %>
-  
+
       <%= f.submit class: 'btn btn-primary margin-top' %>
 
     <% end %>

@@ -1,25 +1,25 @@
 $(document).on('turbolinks:load', function () {
-  var country = $("#country");
-  var state = $("#state");
+  var country = $('#country');
+  var state = $('#state');
 
-  $(country).on("change", function(){
+  $(country).on('change', function () {
     $.ajax({
-      url: "/states",
+      url: '/states',
       data: {
         country: country.val(),
-      }, 
-      type: "get",
-    })
-  })
+      },
+      type: 'get',
+    });
+  });
 
-  $(state).on("change", function(){
+  $(state).on('change', function () {
     $.ajax({
-      url: "/cities",
-      data:{
+      url: '/cities',
+      data: {
         state: state.val(),
         country: country.val(),
       },
-      type: "GET",
-    })
-  })
-})
+      type: 'GET',
+    });
+  });
+});

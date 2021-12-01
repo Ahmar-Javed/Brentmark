@@ -3,25 +3,25 @@ module Api
 
     class ProductsController < ApplicationController::API
       def index
-        @products = Product.all 
+        @products = Product.all
         render json: @products
       end
 
       def new
-        @product= Product.new
+        @product = Product.new
       end
-     
+
       def create
-        @product= Product.new(product_params)
+        @product = Product.new(product_params)
 
         if @product.save
-          render json: @product 
+          render json: @product
         else
-          render json: {error: @product.errors.full_messaages.to_sentence}
+          render json: { error: @product.errors.full_messaages.to_sentence }
         end
       end
-    
-      private 
+
+      private
 
       def product_params
         params.permit(:title, :description, :price, :status, :category_id, :coupon_id, main_images: [])

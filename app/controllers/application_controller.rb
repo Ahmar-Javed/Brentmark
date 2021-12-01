@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  
+
   protected
 
   def configure_permitted_parameters
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     return admin_products_path if resource.admin?
     return edit_user_registration_path if resource.status?
- 
+
     users_path
   end
 end

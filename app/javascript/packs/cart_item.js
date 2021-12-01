@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function () {
-$(".my-select-box").on("change", function () {
+  $(".my-select-box").on("change", function () {
     $.ajax({
         url: "/total_price",
         data: {
@@ -9,8 +9,9 @@ $(".my-select-box").on("change", function () {
         type: "POST",
         error: function () {alert('error');},
         success: function (response) {
-          // do something
+          $('.' + Object.keys(response)[0]).html(Object.values(response)[0] + '$');
+          $('.cart-price').html(response.total_price + '$');
          }
     });
-});
+  });
 });

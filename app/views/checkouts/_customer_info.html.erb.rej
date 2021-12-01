@@ -1,0 +1,53 @@
+diff a/app/views/checkouts/_customer_info.html.erb b/app/views/checkouts/_customer_info.html.erb	(rejected hunks)
+@@ -1,6 +1,5 @@
+ <div class="jumbotron">
+   <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+-  
+     <div class="field">
+       <%= f.label :first_name %><br />
+       <%= f.text_field :first_name, autofocus: true, class: "form-control", autocomplete: "first_name" %>
+@@ -16,7 +15,7 @@
+       <%= f.text_field :phone, autofocus: true, class: "form-control" %>
+     </div>
+ 
+-     <div class="field">
++    <div class="field">
+       <%= f.label :zip_code %><br />
+       <%= f.text_field :zip_code, autofocus: true, class: "form-control" %>
+     </div>
+@@ -25,25 +24,25 @@
+       <%= f.label :address %><br />
+       <%= f.text_field :address, autofocus: true, class: "form-control" %>
+     </div>
+-     
++
+     <div class="field">
+       <%= label_tag :country %>
+-      <%= f.select :country, options_for_select(CS.countries.map { |c| [c[1], c[0]] } ) %>
++      <%= f.select :country, options_for_select(CS.countries.map { |c| [c[1], c[0]] }) %>
+     </div>
+ 
+     <div class="field">
+-    <%= label_tag :state %>
+-    <%= f.select :state, options_for_select([]), class: 'user_state' %>
+-  </div>
++      <%= label_tag :state %>
++      <%= f.select :state, options_for_select([]), class: 'user_state' %>
++    </div>
+ 
+-  <div class="field">
+-    <%= f.label :city %>
+-    <%= f.select :city, options_for_select([]) %>
+-  </div>
++    <div class="field">
++      <%= f.label :city %>
++      <%= f.select :city, options_for_select([]) %>
++    </div>
+ 
+     <div class="field">
+       <%= f.label :user_name %><br />
+-      <%= f.text_field :username, autofocus: true, class: "form-control"%>
++      <%= f.text_field :username, autofocus: true, class: "form-control" %>
+     </div>
+ 
+     <div class="actions">

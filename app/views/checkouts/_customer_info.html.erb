@@ -3,47 +3,47 @@
   
     <div class="field">
       <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, autofocus: true, class: "form-control", autocomplete: "first_name" %>
+      <%= f.text_field :first_name, autofocus: true, class: "form-control", autocomplete: "first_name",required: true %>
     </div>
 
     <div class="field">
       <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, autofocus: true, class: "form-control", autocomplete: "last_name" %>
+      <%= f.text_field :last_name, autofocus: true, class: "form-control", autocomplete: "last_name", required: true %>
     </div>
 
     <div class="field">
       <%= f.label :phone %><br />
-      <%= f.text_field :phone, autofocus: true, class: "form-control" %>
+      <%= f.text_field :phone, autofocus: true, class: "form-control", required: true %>
     </div>
 
      <div class="field">
       <%= f.label :zip_code %><br />
-      <%= f.text_field :zip_code, autofocus: true, class: "form-control" %>
+      <%= f.text_field :zip_code, autofocus: true, class: "form-control", required: true %>
     </div>
 
     <div class="field">
       <%= f.label :address %><br />
-      <%= f.text_field :address, autofocus: true, class: "form-control" %>
+      <%= f.text_field :address, autofocus: true, class: "form-control", required: true %>
     </div>
      
     <div class="field">
       <%= label_tag :country %>
-      <%= f.select :country, options_for_select(CS.countries.map { |c| [c[1], c[0]] } ) %>
+      <%= f.select :country, options_for_select(CS.countries.map { |c| [c[1], c[0]] } ), required: true %>
     </div>
 
     <div class="field">
     <%= label_tag :state %>
-    <%= f.select :state, options_for_select([]), class: 'user_state' %>
+    <%= f.select :state, options_for_select([]), class: 'user_state', required: true %>
   </div>
 
   <div class="field">
     <%= f.label :city %>
-    <%= f.select :city, options_for_select([]) %>
+    <%= f.select :city, options_for_select([]), required: true %>
   </div>
 
     <div class="field">
       <%= f.label :user_name %><br />
-      <%= f.text_field :username, autofocus: true, class: "form-control"%>
+      <%= f.text_field :username, autofocus: true, class: "form-control", required: true%>
     </div>
 
     <div class="actions">
@@ -52,7 +52,6 @@
 
   <% end %>
 
-  <%= link_to 'Back', users_path , class: "btn btn-dark margin-top"  %>
+  <%= link_to 'Back', users_path, class: "btn btn-dark margin-top" %>
 
 </div>
-

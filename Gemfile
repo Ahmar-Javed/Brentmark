@@ -31,6 +31,8 @@ gem 'allow_numeric'
 
 gem 'will_paginate', '~> 3.3'
 
+gem "interactor-rails", "~> 2.0"
+
 # gem 'image_processing', '~> 1.2'
 gem 'devise', '~> 4.8'
 

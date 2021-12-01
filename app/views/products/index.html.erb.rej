@@ -1,0 +1,27 @@
+diff a/app/views/products/index.html.erb b/app/views/products/index.html.erb	(rejected hunks)
+@@ -2,17 +2,18 @@
+   <% @products.each do |prod| %>
+     <div class="col-4">
+       <div class="card productcart">
+-        <div> 
+-         <%= image_tag prod.main_images.first, class: "card-img-top"  %>
+-        </div>
++        <% if prod.main_images.first&.attached? %>
++          <div>
++            <%= image_tag prod.main_images.first, class: "card-img-top" %>
++          </div>
++        <% end %>
+         <div class="card-body">
+-          <h5 class="card-title"><%=prod.title%></h5>
+-          <p class="card-text"><%=prod.price%>$</p>
++          <h5 class="card-title"><%= prod.title %></h5>
++          <p class="card-text"><%= prod.price %>$</p>
+           <%= link_to "Add To Cart", cart_items_path(id: prod), method: :post, class: "btn btn-primary" %>
+-          <%= link_to "Details", product_path(prod), class: "btn btn-primary cart" %>    
++          <%= link_to "Details", product_path(prod), class: "btn btn-primary cart" %>
+         </div>
+       </div>
+     </div>
+   <% end %>
+ </div>
+-

@@ -1,8 +1,8 @@
 module ColSearchSort
   extend ActiveSupport::Concern
-  
+
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
   def search_sort_pagination(query, classname)

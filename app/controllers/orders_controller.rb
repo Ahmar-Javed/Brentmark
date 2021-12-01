@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    if helpers.final_price > 0
     @order = current_user.orders.new(order_params)
     @order.final_price = helpers.final_price
     if @order.buy_products

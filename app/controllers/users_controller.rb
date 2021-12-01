@@ -1,5 +1,4 @@
-class UsersController < ApplicationController 
-
+class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
@@ -9,7 +8,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
- 
+
   def show; end
 
   def edit; end
@@ -27,9 +26,9 @@ class UsersController < ApplicationController
     @product.destroy
     redirect_to users_path, notice: "Product has been deleted"
   end
-  
+
   protected
-  
+
   def user_params
     params.require(:user).permit(:firstname, :lastname, :email, :username)
   end

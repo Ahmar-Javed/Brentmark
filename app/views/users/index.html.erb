@@ -1,9 +1,8 @@
 <div class="jumbotron ShowContainer">
-  
-  <h1 class="display-4">Hello <%= current_user.firstname%></h1>
+  <h1 class="display-4">Hello <%= current_user.firstname %></h1>
   <p class="lead">Welcome to Brenmark</p>
-  <h2><%=current_user.username%> </h2>
-  <h2><%=current_user.email%> </h2>
+  <h2><%= current_user.username %> </h2>
+  <h2><%= current_user.email %> </h2>
   <p class="lead"><%= link_to "Edit User", edit_user_registration_path, class: "btn btn-success" %>
   </p>
 
@@ -18,7 +17,7 @@
 
       </tr>
     </thead>
-    <% if @orders %>
+    <% if @orders && @products %>
       <% @orders.each do |order| %>  
        <thead class="first-row">
           <th scope="col" class="links"> Order ID</th>

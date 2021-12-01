@@ -14,7 +14,7 @@ class Admin::CategoriesController < Admin::AdminsController
   def edit; end
 
   def create
-     @category = Category.new(category_params)
+    @category = Category.new(category_params)
 
     if @category.save
       redirect_to admin_categories_path, notice: " your Category has been created "

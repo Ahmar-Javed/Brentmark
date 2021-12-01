@@ -1,0 +1,56 @@
+diff a/app/views/users/index.html.erb b/app/views/users/index.html.erb	(rejected hunks)
+@@ -15,35 +14,36 @@
+         <th scope="col" class="col-width links">Product.price</th>
+         <th scope="col" class="links">Product Type</th>
+         <th scope="col" class="Action">Actions</th>
+-
+       </tr>
+     </thead>
+     <% if @orders %>
+-      <% @orders.each do |order| %>  
+-       <thead class="first-row">
+-          <th scope="col" class="links"> Order ID</th>
+-          <th scope="col" class="links"> Order status</th>
+-          <th scope="col" class="col-width links">Final Price</th>
++      <% @orders.each do |order| %>
++        <thead class="first-row">
++          <tr>
++            <th scope="col" class="links"> Order ID</th>
++            <th scope="col" class="links"> Order status</th>
++            <th scope="col" class="col-width links">Final Price</th>
++          </tr>
+         </thead>
+         <tbody>
+-          <td><%=order.id %></td>
+-          <td><%=order.status %></td>
+-          <td><%=order.final_price %></td>
++          <td><%= order.id %></td>
++          <td><%= order.status %></td>
++          <td><%= order.final_price %></td>
+         </tbody>
+-        <% order.order_items.each do |prod|%>
++        <% order.order_items.each do |prod| %>
+           <tbody>
+-            <tr> 
+-              <th scope="row"><%=prod.product.id%></th>
+-              <td><%=prod.product.title %></td>
+-              <td><%=prod.product.price %></td>
+-              <td><%=prod.product.category.name %></td>
++            <tr>
++              <th scope="row"><%= prod.product.id %></th>
++              <td><%= prod.product.title %></td>
++              <td><%= prod.product.price %></td>
++              <td><%= prod.product.category.name %></td>
+               <td>
+-                <%= link_to "Delete", users_path(prod.product), method: :delete, data: {confirm: 'are you sure'}, class: "btn btn-danger", remote: true %>  
+-              </td>      
++                <%= link_to "Delete", users_path(prod.product), method: :delete, data: { confirm: 'are you sure' }, class: "btn btn-danger", remote: true %>
++              </td>
+             </tr>
+           </tbody>
+         <% end %>
+       <% end %>
+     <% end %>
+-  </table>   
++  </table>
+ </div>

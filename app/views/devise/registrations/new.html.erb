@@ -3,7 +3,7 @@
   <div class="center">
     <h2>Sign up</h2>
 
-    <%= form_for resource, as: resource_name, url: user_registration_path,remote: true, method: :post do |f| %>
+    <%= form_for resource, as: resource_name, url: user_registration_path, remote: true, method: :post do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <div>
         <%= f.label :first_name %><br />
@@ -15,14 +15,14 @@
         <%= f.text_field :lastname, autofocus: true, class: "form-control", autocomplete: "last_name" %>
       </div>
 
-      <div >
+      <div>
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email" %>
       </div>
 
       <div>
         <%= f.label :user_name %><br />
-        <%= f.text_field :username, autofocus: true, class: "form-control"%>
+        <%= f.text_field :username, autofocus: true, class: "form-control" %>
       </div>
 
       <div>
@@ -30,7 +30,8 @@
         <% if @minimum_password_length %>
         <% end %><br />
         <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %><br>
-        <em class="description">Password must contain minimum 8 characters, To make it stronger use upper case or lower case letter, numbers and symbols </em>
+        <em class="description">Password must contain minimum 8 characters, To make it stronger use upper case or lower
+          case letter, numbers and symbols </em>
       </div>
 
       <div>
@@ -39,7 +40,7 @@
       </div>
 
       <div>
-        <%= f.submit "Sign up" , class: "btn btn-primary margin-top button" %>
+        <%= f.submit "Sign up", class: "btn btn-primary margin-top button" %>
       </div>
     <% end %>
   </div>

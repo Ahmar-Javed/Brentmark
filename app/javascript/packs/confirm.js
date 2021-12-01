@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function () {
-  $('#confirm').on('click', function (e) {
+  $('.btn-danger').on('click', function (e) {
     if (confirm('are you sure you want to delete user')) {
       // do something
     } else {

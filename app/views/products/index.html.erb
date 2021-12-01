@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title"><%=prod.title%></h5>
-          <p class="card-text"><%=prod.price%>$</p>
+          <p class="card-text"><%=number_to_currency(prod.price, unit: '$')%>$</p>
           <%= link_to "Add To Cart", cart_items_path(id: prod), method: :post, class: "btn btn-primary" %>
           <%= link_to "Details", product_path(prod), class: "btn btn-primary cart" %>    
         </div>

@@ -1,7 +1,7 @@
-class Coupon < ApplicationRecord  
+class Coupon < ApplicationRecord
   include PgSearch::Model
   has_and_belongs_to_many :products
-  
+
   TYPE = [:percentage, :cash].freeze
   enum type: TYPE
 
@@ -11,8 +11,8 @@ class Coupon < ApplicationRecord
     CSV.generate do |csv|
       csv << column_names
       all.each do |coupon|
-        csv << coupon.attributes.values_at(*column_names) 
+        csv << coupon.attributes.values_at(*column_names)
       end
     end
-  end  
+  end
 end

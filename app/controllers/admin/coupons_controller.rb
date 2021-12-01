@@ -1,6 +1,6 @@
 class Admin::CouponsController < Admin::AdminsController
   before_action :set_coupon, only: [:edit, :update, :show, :destroy, :apply_coupon]
-  
+
   include ColSearchSort
 
   def index
@@ -19,7 +19,7 @@ class Admin::CouponsController < Admin::AdminsController
       render template: "new"
     end
   end
-  
+
   def new
     @coupon = Coupon.new
   end
@@ -38,7 +38,7 @@ class Admin::CouponsController < Admin::AdminsController
 
   def apply_coupon; end
 
-   def destroy
+  def destroy
     @coupon.destroy
     redirect_to admin_coupons_path, notice: "Coupon has been deleted"
   end
@@ -46,7 +46,7 @@ class Admin::CouponsController < Admin::AdminsController
   private
 
   def coupon_params
-    params.require(:coupon).permit(:name,:discount_type, :discount, product_ids: [])
+    params.require(:coupon).permit(:name, :discount_type, :discount, product_ids: [])
   end
 
   def set_coupon

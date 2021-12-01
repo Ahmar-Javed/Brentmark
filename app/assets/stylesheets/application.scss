@@ -3,28 +3,28 @@
 @import "bootstrap/scss/bootstrap";
 
 body {
-  box-sizing: border-box; 
+  box-sizing: border-box;
   background: #203647;
 }
- 
+
 .center {
   width: 400px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .bg {
-  color:white;
+  color: white;
 }
 
 .product-img {
   width: 250px;
-  height:360px;  
-  object-fit:cover;
+  height: 360px;
+  object-fit: cover;
 }
 
 .users {
   position: relative;
-  display:inline;
+  display: inline;
   width: 400px;
   margin-top: 10px;
 }
@@ -33,7 +33,7 @@ select {
   width: 302px;
   height: 36px;
   border: none;
-  border-radius:4px;
+  border-radius: 4px;
 }
 
 #card-dimension {
@@ -44,8 +44,8 @@ select {
 }
 
 li {
-  margin-left:10px;
-  list-style:none;
+  margin-left: 10px;
+  list-style: none;
 }
 
 .navbar-brand {
@@ -53,7 +53,7 @@ li {
 }
 
 .show {
-  background-color: #203647; 
+  background-color: #203647;
 }
 
 .img-thumbnail {
@@ -70,16 +70,16 @@ li {
 }
 
 .card-img-top {
- height: 430px;
- object-fit: cover;
+  height: 430px;
+  object-fit: cover;
 }
 
 .accordion {
-  color: black; 
+  color: black;
 }
 
 .cart {
-  float: right;  
+  float: right;
 }
 
 .card-group {
@@ -88,7 +88,7 @@ li {
 }
 
 th {
-  color:white;
+  color: white;
 }
 
 .card {
@@ -103,8 +103,8 @@ th {
 }
 
 .productsearch {
-  margin-top: 6%;  
-  float:right;
+  margin-top: 6%;
+  float: right;
   margin-right: 1%;
 }
 
@@ -119,25 +119,25 @@ th {
 }
 
 .description {
-  margin-top: 20px;  
+  margin-top: 20px;
 }
 
 .trix-content {
-  min-width: 927px;  
+  min-width: 927px;
 }
 
 .drop-down {
   min-width: 925px;
   height: 36px;
   border: none;
-  border-radius:4px;
+  border-radius: 4px;
 }
 
 .background {
-    background: #203647;
-   width: 100%;
-   background-size: cover;
-   color: white;
+  background: #203647;
+  width: 100%;
+  background-size: cover;
+  color: white;
 }
 
 .Action {
@@ -145,7 +145,7 @@ th {
 }
 
 td {
-  color:white;
+  color: white;
 }
 
 .links a {
@@ -154,7 +154,7 @@ td {
 }
 
 .btn-warning {
-  margin-top: 10px;  
+  margin-top: 10px;
 }
 
 .container {
@@ -162,28 +162,28 @@ td {
 }
 
 .table1 {
-   max-width: 950px;
-   margin: 5% auto;
-   color:white;
- }
+  max-width: 950px;
+  margin: 5% auto;
+  color: white;
+}
 
 .table2 {
-   max-width: 800px;
-   margin: 10% auto;
-   color:white;
-   margin-top: 10%;
+  max-width: 800px;
+  color: white;
+  margin: 10% auto;
 }
 
 .table {
-  color:white;
+  color: white;
 }
 
 .cart-item-row {
   display: flex;
 }
+
 .cart-item-table {
-  width:800px;
-  float:left;
+  width: 800px;
+  float: left;
 }
 
 .coupon-jumbotron {
@@ -210,11 +210,11 @@ td {
 .paginate {
   height: 100px;
   width: 100%;
-  color: black;  
+  color: black;
 }
 
 .ShowContainer {
-  color: black;  
+  color: black;
   object-fit: contain;
 }
 
@@ -226,7 +226,7 @@ td {
 .flex {
   max-width: 900px;
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
 
 .search {
@@ -243,7 +243,7 @@ td {
   margin-left: 40%;
   margin-bottom: 2%;
   color: black;
-  display:none;
+  display: none;
 }
 
 .margin-bottom {
@@ -271,8 +271,8 @@ td {
 .white {
   color: white;
   position: absolute;
-  bottom: 30;
-  left: 5;
+  bottom: 30px;
+  left: 5px;
 }
 
 .final-price {
@@ -307,19 +307,19 @@ td {
 }
 
 .products {
- position: absolute;
- top: 15%;
- left:3%;
+  position: absolute;
+  top: 15%;
+  left: 3%;
 }
 
 .signout {
   margin-right: 20px;
   text-decoration: none;
-  display:flex;
+  display: flex;
 }
 
 .nav-buttons {
-  display:flex;
+  display: flex;
   float: left;
 }
 
@@ -328,19 +328,20 @@ td {
   border: 1px solid #e5e5e5;
   text-align: center;
   padding: 1em;
-  cursor: default; 
+  cursor: default;
 }
 
 .navbar-brand {
   font-family: 'Dancing Script', cursive;
   margin-left: 50px;
 }
+
 .apple_pagination a, .apple_pagination span {
-  padding: 0.2em 0.3em; 
+  padding: 0.2em 0.3em;
 }
 
 .apple_pagination .disabled {
-  color: #aaaaaa; 
+  color: #aaaaaa;
 }
 
 .apple_pagination .current {
@@ -354,12 +355,12 @@ td {
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em;
-  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; 
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
 }
 
 .apple_pagination a {
   text-decoration: none;
-  color: black; 
+  color: black;
 }
 
 .apple_pagination a:hover, .apple_pagination a:focus {

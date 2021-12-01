@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-  def index 
+  def index
     @cities = CS.get(params[:country], params[:state])
   end
 end
