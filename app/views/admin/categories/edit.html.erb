@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <%= form_for @category, url: admin_category_path, method: "put" do |f| %>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, class: "form-control", autocomplete: "title" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update category", class: "btn btn-warning margin-top button" %>
+    </div>
+
+  <% end %>
+
+  <%= link_to 'Back', admin_categories_path, class: "btn btn-dark margin-top" %>
+
+</div>

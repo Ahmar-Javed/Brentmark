@@ -1,0 +1,18 @@
+<div class="row">
+  <% @products.each do |prod| %>
+    <div class="col-4">
+      <div class="card productcart">
+        <div> 
+         <%= image_tag prod.main_images.first, class: "card-img-top"  %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%=prod.title%></h5>
+          <p class="card-text"><%=number_to_currency(prod.price, unit: '$')%>$</p>
+          <%= link_to "Add To Cart", cart_items_path(id: prod), method: :post, class: "btn btn-primary" %>
+          <%= link_to "Details", product_path(prod), class: "btn btn-primary cart" %>    
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

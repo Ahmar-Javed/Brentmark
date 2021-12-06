@@ -1,0 +1,33 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container ShowContainer">
+    <h1> Add a new Product</h1>
+
+    <%= form_with model: @product, url: admin_products_path do |f| %>
+
+      <%= f.label :title%><br>
+      <%= f.text_field :title, class: "form-control" %> <br>
+
+      <%= f.label :price%><br>
+      <%= f.text_field :price, class: "form-control"%> <br>
+
+      <%= f.label :status%><br>
+      <div>
+        <%= f.select :status, ["Published", "Publish Pending", "Draft"], {}, { class:  'drop-down' } %>
+      </div>
+
+      <%= f.label :category%><br>      
+      <div>
+        <%= f.select :category_id, Category.pluck(:name, :id) , {}, { class: 'drop-down' } %>
+      </div>
+
+      <%= f.label :main_image %>
+      <%= f.file_field :main_images, multiple: true %>
+
+      <%= f.label :description, class: 'description' %>
+      <%= f.rich_text_area :description %>
+
+      <%= f.submit class: 'btn btn-primary margin-top' %>
+
+    <% end %>
+  </div>
+</div>

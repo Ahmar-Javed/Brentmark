@@ -1,0 +1,10 @@
+diff a/app/views/admin/categories/index.html.erb b/app/views/admin/categories/index.html.erb	(rejected hunks)
+@@ -1,6 +1,6 @@
+-<div class="products"> 
++<div class="products">
+   <h2>Add new Coupons</h2>
+-  <%= link_to "Add new Ctegory", new_admin_category_path, class: "btn btn-light" %>    
++  <%= link_to "Add new Ctegory", new_admin_category_path, class: "btn btn-light" %>
+ </div>
+ <div class="table2">
+   <table class="table table-striped">

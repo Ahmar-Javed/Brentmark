@@ -1,0 +1,11 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container ShowContainer">
+    <h1> Add a new Category</h1>
+
+    <%= form_with model: @category, url: admin_categories_path do |f| %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control" %> <br>
+      <%= f.submit class: 'btn btn-primary margin-top' %>
+    <% end %>
+  </div>
+</div>

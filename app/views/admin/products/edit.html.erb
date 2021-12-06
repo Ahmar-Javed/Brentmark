@@ -1,0 +1,39 @@
+<div class="jumbotron">
+  <%= form_for @product, url: admin_product_path, method: "put" do |f| %>
+    <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, autofocus: true, class: "form-control", autocomplete: "title" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :status %><br />
+      <%= f.text_field :status, autofocus: true, class: "form-control", autocomplete: "status" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.rich_text_area :description, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :price %><br />
+      <%= f.text_field :price, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :main_image %>
+      <%= f.file_field :main_images, multiple: true, class: "form-control" %>
+    </div>
+
+    <%= f.label :category %><br>
+    <div>
+      <%= f.select :category_id, Category.pluck(:name, :id), {}, { :class => 'drop-down' } %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update Product", class: "btn btn-warning margin-top button" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back', admin_products_path, class: "btn btn-dark margin-top" %>
+</div>

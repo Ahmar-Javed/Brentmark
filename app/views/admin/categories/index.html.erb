@@ -1,0 +1,28 @@
+<div class="products"> 
+  <h2>Add new Category</h2>
+  <%= link_to "Add new Ctegory", new_admin_category_path, class: "btn btn-light" %>    
+</div>
+<div class="table2">
+  <table class="table table-striped">
+    <thead class="first-row">
+      <tr>
+        <th scope="col" class="links">id</th>
+        <th scope="col" class="col-width links">title</th>
+        <th scope="col" class="Action">Actions</th>
+      </tr>
+    </thead>
+    <% @categories.each do |category| %>
+      <tbody>
+        <tr>
+          <th scope="row"><%= category.id %></th>
+          <td><%= category.name %></td>
+          <td>
+            <%= link_to "Delete", admin_category_path(category), method: :delete, data: { confirm: 'are you sure' }, class: "btn btn-danger", remote: true %>
+            <%= link_to "Edit Product", edit_admin_category_path(category), class: "btn btn-success" %>
+            <%= link_to "Show Product", admin_category_path(category), class: "btn btn-primary" %>
+          </td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,11 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container ShowContainer">
+
+    <h3>Category:</h3>
+    <p><%= @category.name %></p>
+
+    <%= link_to 'Back', admin_categories_path, class: "btn btn-dark margin-top" %>
+    <%= link_to "Edit Post", edit_admin_category_path(@category), class: "btn btn-success margin-top" %>
+
+  </div>
+</div>
